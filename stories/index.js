@@ -1,12 +1,17 @@
+///////////////////////////////
+// Storybook Tests
+///////////////////////////////
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-
+// Stylesheet
 import "index.scss";
-
+// Components
 import Button from "components/Button";
+import DayListItem from "components/DayListItem";
 
+// Button Stories
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -21,4 +26,16 @@ storiesOf("Button", module)
     <Button disabled onClick={action("button-clicked")}>
       Disabled
     </Button>
+  ));
+
+// DayListItem Stories
+storiesOf("DayListItem", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Unselected", () => <DayListItem name="Monday" spots={5} />)
+  .add("Selected", () => <DayListItem name="Monday" spots={5} selected />) 
+  .add("Full", () => <DayListItem name="Monday" spots={0} />)
+  .add("Clickable", () => (
+    <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} />
   ));
