@@ -1,6 +1,6 @@
-/////////////////////////////////
+///////////////////////////////////
 // InterviewerListItem Component
-/////////////////////////////////
+///////////////////////////////////
 import React from "react";
 import classNames from "classnames";
 
@@ -11,14 +11,23 @@ import "components/InterviewerListItem.scss"
 export default function InterviewerListItem(props)  {
   const interviewerClass = classNames("interviewers__item", {"interviewers__item--selected": props.selected});
 
+  const showName = function() {
+    if (props.selected) {
+      return props.name
+    };
+  }
+
+  const interviewerName = showName();
+
+
   return (
-    <li className="interviewers__item" onClick={() => props.setInterviewer(props.id)}>
+    <li className={interviewerClass} onClick={() => props.setInterviewer(props.id)}>
       <img
-        className="interviewers__item-image"
-        src="https://i.imgur.com/LpaY82x.png"
-        alt="Sylvia Palmer"
+        className={interviewerClass}
+        src={props.avatar}
+        alt={props.name}
       />
-      Sylvia Palmer
+      {interviewerName}
     </li>
   );
 }
