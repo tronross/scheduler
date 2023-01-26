@@ -1,7 +1,34 @@
-import React from "react";
+////////////////////////////
+// Application Component
+////////////////////////////
+import React, { useState } from "react";
 
+import DayList from "./DayList";
+
+// Stylesheet
 import "components/Application.scss";
 
+// Mock Data for DayList Stories
+const days = [
+  {
+    id: 1,
+    name: "Monday",
+    spots: 2,
+  },
+  {
+    id: 2,
+    name: "Tuesday",
+    spots: 5,
+  },
+  {
+    id: 3,
+    name: "Wednesday",
+    spots: 0,
+  },
+];
+
+
+// Component
 export default function Application(props) {
   return (
     <main className="layout">
@@ -12,7 +39,13 @@ export default function Application(props) {
   alt="Interview Scheduler"
 />
 <hr className="sidebar__separator sidebar--centered" />
-<nav className="sidebar__menu"></nav>
+<nav className="sidebar__menu">
+<DayList
+  days={days}
+  day={"Monday"}
+  setDay={day => console.log(day)}
+/>
+</nav>
 <img
   className="sidebar__lhl sidebar--centered"
   src="images/lhl.png"
