@@ -6,7 +6,7 @@ import React from "react";
 import InterviewerListItem from "./InterviewerListItem";
 
 // Stylesheet
-import "components/InterviewerListItem.scss"
+import "components/InterviewerList.scss"
 
 // Component
 export default function InterviewerList(props) {
@@ -19,7 +19,7 @@ export default function InterviewerList(props) {
       id={interviewer.id}
       avatar={interviewer.avatar}
       name={interviewer.name}
-      selected={interviewer.id === props.id}
+      selected={interviewer.id === props.interviewer}
       setInterviewer={props.setInterviewer}
       />
     )
