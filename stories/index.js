@@ -158,4 +158,4 @@ storiesOf("InterviewerList", module)
   .add("Appointment with Time", () => <Appointment time="12pm"/>)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty", () => <Empty onAdd={action("onAdd")} />)
-  .add("Show", () => <Show student={"Barlon of Smellycastle"} interviewer={"Cohana Roy"} onEdit={action("onEdit")} onDelete={action("onDelete")} />);
+  .add("Show", () => <Show student={"Barlon of Smellycastle"} interviewer={interviewer.name} onEdit={action("onEdit")} onDelete={action("onDelete")} />);
