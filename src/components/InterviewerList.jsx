@@ -10,6 +10,10 @@ import "components/InterviewerList.scss"
 
 // Component
 export default function InterviewerList(props) {
+  
+  // Error-preventing placeholder variable
+  let onChange;
+
   const interviewers = props.interviewers;
 
   const interviewersList = interviewers.map(interviewer => {
@@ -18,8 +22,8 @@ export default function InterviewerList(props) {
       key={interviewer.id}
       avatar={interviewer.avatar}
       name={interviewer.name}
-      selected={interviewer.id === props.interviewer}
-      setInterviewer={() => props.setInterviewer(interviewer.id)}
+      selected={interviewer.id === props.value} // remember to change props.value to value
+      setInterviewer={() => onChange(interviewer.id)}
       />
     )
   })
