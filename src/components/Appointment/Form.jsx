@@ -1,12 +1,14 @@
 ////////////////////////////////////
 // (Appointment) Form Component
 ////////////////////////////////////
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 
-export default function(props) {
+export default function Form(props) {
+  const [student, setStudent] = useState(props.student || "");
+  const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -16,15 +18,14 @@ export default function(props) {
             className="appointment__create-input text--semi-bold"
             name="name"
             type="text"
-            placeholder="Enter Student Name"
-            /*
-              This must be a controlled component
-              your code goes here
-            */
+            placeholder={student}
+            onChange={(e) => setStudent(e.target.value)}
           />
         </form>
         <InterviewerList 
           interviewers={props.interviewers}
+          interviewer={interviewer}
+          setInterviewer={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">
