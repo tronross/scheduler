@@ -10,9 +10,6 @@ import "components/InterviewerList.scss"
 
 // Component
 export default function InterviewerList(props) {
-  
-  // Error-preventing placeholder variable
-  let onChange;
 
   const interviewers = props.interviewers;
 
@@ -23,7 +20,7 @@ export default function InterviewerList(props) {
       avatar={interviewer.avatar}
       name={interviewer.name}
       selected={interviewer.id === props.interviewer}
-      setInterviewer={() => onChange(interviewer.id)}
+      setInterviewer={() => props.onChange(interviewer.id)}
       />
     )
   })
