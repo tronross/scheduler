@@ -3,10 +3,10 @@
 //////////////////////////////////
 import React from "react";
 
-
+// Component
 export default function Empty(props) {
 
-return (
+  return (
   <main className="appointment__add">
     <img
       className="appointment__add-button"
@@ -15,5 +15,5 @@ return (
       onClick={props.onAdd}
     />
   </main>
-  )
+  );
 }
