@@ -11,6 +11,7 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 
+// Component
 export default function Appointment(props) {
   const interview = {...props.interview};
   const interviewerObj = {...interview.interviewer};
