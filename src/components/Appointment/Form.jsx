@@ -3,9 +3,11 @@
 ////////////////////////////////////
 import React, { useState } from "react";
 
+// Child Component
 import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 
+// Component
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
@@ -20,8 +22,6 @@ export default function Form(props) {
     reset();
     props.onCancel();
   }
-
-  
 
   return (
     <main className="appointment__card appointment__card--create">
