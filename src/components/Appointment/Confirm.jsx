@@ -3,8 +3,10 @@
 ////////////////////////////////////
 import React from "react";
 
+// Child Component
 import Button from "components/Button";
 
+// Component
 export default function Confirm(props) {
 
   return (
