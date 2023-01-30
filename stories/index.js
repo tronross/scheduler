@@ -53,7 +53,8 @@ storiesOf("DayListItem", module)
     <DayListItem name="Tuesday" setDay={() => action("setDay")("Tuesday")} spots={5} />
   ));
 
-// Mock Data for DayList Stories
+// DayList Stories
+// Mock Data
 const days = [
   {
     id: 1,
@@ -72,7 +73,7 @@ const days = [
   },
 ];
 
-// DayList Stories
+// Stories
 storiesOf("DayList", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
@@ -87,13 +88,15 @@ storiesOf("DayList", module)
       <DayList days={days} value={"Wednesday"} onChange={action("setDay")} />
   ));
 
-//InterviewerListItem Stories
+// InterviewerListItem Stories
+// Mock Data
 const interviewer = {
   id: 1,
   name: "Sylvia Palmer",
   avatar: "https://i.imgur.com/LpaY82x.png"
 };
 
+// Stories
 storiesOf("InterviewerListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -122,6 +125,7 @@ storiesOf("InterviewerListItem", module)
   ));
 
 // InterviewerList Stories
+// Mock Data
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
@@ -130,6 +134,7 @@ const interviewers = [
   { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" }
 ];
 
+// Stories
 storiesOf("InterviewerList", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
