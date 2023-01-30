@@ -3,6 +3,7 @@
 //////////////////////////////////
 import React from "react";
 
+// Component
 export default function Show(props) {
 
   return (
