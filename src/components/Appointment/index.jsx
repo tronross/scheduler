@@ -1,6 +1,7 @@
 ////////////////////////////
 // Appointment Component
 ////////////////////////////
+
 import React, { Fragment } from "react";
 
 // Stylesheet
@@ -13,6 +14,7 @@ import Empty from "./Empty";
 
 // Component
 export default function Appointment(props) {
+  // extract and define nested props
   const interview = {...props.interview};
   const interviewerObj = {...interview.interviewer};
 
