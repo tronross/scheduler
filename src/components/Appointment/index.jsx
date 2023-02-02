@@ -27,7 +27,7 @@ export default function Appointment(props) {
             <>
               <Show student={interview.student} interviewer={interviewerObj.name} />
             </>
-            :
+          :
             <>
               <Empty />
             </>
