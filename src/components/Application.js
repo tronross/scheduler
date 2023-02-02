@@ -64,7 +64,6 @@ export default function Application(props) {
     .get('/api/days')
     .then((response) => {
       setDays([...response.data])
-      console.log(days);
     })
   }, [])
   
