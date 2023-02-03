@@ -7,7 +7,8 @@ export function getAppointmentsForDay(state, day) {
   const rightDay = state.days.filter(dayObj => 
     dayObj.name === day
   );
-
+  
+  // edge case error handling
   const rightDayObj = rightDay[0];
   if (!rightDayObj) {
     return [];
@@ -21,4 +22,3 @@ export function getAppointmentsForDay(state, day) {
 
   return appointmentsForDay
 };
-
