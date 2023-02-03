@@ -4,13 +4,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+// Helper functions
+import { getAppointmentsForDay } from "helpers/selectors";
+
 // Child Components
 import DayList from "./DayList";
 import Appointment from "./Appointment";
 
 // Stylesheet
 import "components/Application.scss";
-import { getAppointmentsForDay } from "helpers/selectors";
 
 // Component
 export default function Application(props) {
@@ -34,7 +36,9 @@ export default function Application(props) {
       axios.get('/api/appointments'),
       axios.get('/api/interviewers')
     ]).then((responses) => {
-      setState(prev => ({...prev, days: responses[0].data, appointments: responses[1].data, interviewers: responses[2].data}));
+      setState(prev => ({...prev, days: responses[0].data,
+                                  appointments: responses[1].data, 
+                                  interviewers: responses[2].data}));
     });
   }, [])
   
