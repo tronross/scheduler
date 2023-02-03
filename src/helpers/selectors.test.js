@@ -1,7 +1,7 @@
 /////////////////////////////////////////
 // Selectors: Jest Tests
 /////////////////////////////////////////
-import { getAppointmentsForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
 const state = {
   days: [
