@@ -54,7 +54,6 @@ export default function Application(props) {
                                   interviewers: responses[2].data}));
     });
   }, [])
-  console.log(state.interviewers)
   
   return (
     <main className="layout">
