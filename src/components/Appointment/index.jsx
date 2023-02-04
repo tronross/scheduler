@@ -3,6 +3,7 @@
 ////////////////////////////
 
 import React, { Fragment } from "react";
+import useVisualMode from "hooks/useVisualMode";
 
 // Stylesheet
 import "./styles.scss"
@@ -18,22 +19,28 @@ export default function Appointment(props) {
   const interview = {...props.interview};
   const interviewerObj = {...interview.interviewer};
 
+  // Mode constants
+  const EMPTY = "EMPTY";
+  const SHOW = "SHOW";
+
+  const { mode, transition, back } = useVisualMode(
+    props.interview ? SHOW : EMPTY
+  );
+  console.log('Mode: ', mode)
+
   return (
     <Fragment >
       <Header time={props.time} />
       <article className="appointment" >
-        <>
-          {props.interview ?
-            <>
-              <Show student={interview.student} interviewer={interviewerObj.name} />
-            </>
-          :
-            <>
-              <Empty />
-            </>
-          }
-        </>
+            {mode === EMPTY && <Empty onAdd={() => console.log("Clicked onAdd")} />}
+            {mode === SHOW && (
+              <Show 
+                student={interview.student}
+                interviewer={interviewerObj}
+              />
+            )}
       </article>
     </Fragment>
   );
 }
+
