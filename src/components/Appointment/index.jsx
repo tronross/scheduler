@@ -12,6 +12,7 @@ import "./styles.scss"
 import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
+import Form from "./Form";
 
 // Component
 export default function Appointment(props) {
@@ -22,6 +23,7 @@ export default function Appointment(props) {
   // Mode constants
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
+  const CREATE = "CREATE";
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
@@ -32,11 +34,17 @@ export default function Appointment(props) {
     <Fragment >
       <Header time={props.time} />
       <article className="appointment" >
-            {mode === EMPTY && <Empty onAdd={() => console.log("Clicked onAdd")} />}
+            {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
             {mode === SHOW && (
               <Show 
                 student={interview.student}
                 interviewer={interviewerObj}
+              />
+            )}
+            {mode === CREATE && (
+            <Form
+              interviewers={[]}
+              student={interview.student}
               />
             )}
       </article>
