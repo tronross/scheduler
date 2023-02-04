@@ -1,6 +1,7 @@
 ////////////////////////////
 // useVisualMode Hook
 ////////////////////////////
+
 import React, { useState } from "react";
 
 export default function useVisualMode(initialMode) {
