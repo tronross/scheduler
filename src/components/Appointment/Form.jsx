@@ -16,7 +16,6 @@ export default function Form(props) {
   const reset = function() {
     setInterviewer(null);
     setStudent("");
-    console.log(student, interviewer);
   }
 
   const cancel = function() {
