@@ -28,7 +28,6 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-  console.log('Mode: ', mode)
 
   return (
     <Fragment >
@@ -42,9 +41,10 @@ export default function Appointment(props) {
               />
             )}
             {mode === CREATE && (
-            <Form
-              interviewers={[]}
-              student={interview.student}
+              <Form
+                interviewers={[]}
+                student={interview.student}
+                onCancel={() => back()}
               />
             )}
       </article>
