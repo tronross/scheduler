@@ -23,6 +23,27 @@ export function getAppointmentsForDay(state, day) {
   return appointmentsForDay
 };
 
+// getInterviewersForDay
+export function getInterviewersForDay(state, day) {
+  const rightDay = state.days.filter(dayObj => 
+    dayObj.name === day
+  );
+  
+  // edge case error handling
+  const rightDayObj = rightDay[0];
+  if (!rightDayObj) {
+    return [];
+  }
+  
+  const interviewersIds = rightDayObj.interviewers;
+
+  const interviewersForDay = interviewersIds.map((intId) => {
+    return state.interviewers[intId];
+  });
+
+  return interviewersForDay;
+};
+
 // getInterview
 export function getInterview(state, interview) {
   const interviewers = state.interviewers;
