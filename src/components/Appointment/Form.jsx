@@ -1,6 +1,7 @@
 ////////////////////////////////////
 // (Appointment) Form Component
 ////////////////////////////////////
+
 import React, { useState } from "react";
 
 // Child Component
@@ -34,7 +35,6 @@ export default function Form(props) {
             placeholder="Enter Student Name"
             value={student}
             onChange={(e) => setStudent(e.target.value)}
-            
           />
         </form>
         <InterviewerList 
@@ -45,7 +45,7 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>Cancel</Button>
+          <Button danger onClick={props.onCancel}>Cancel</Button>
           <Button confirm onClick={props.onSave}>Save</Button>
         </section>
       </section>
