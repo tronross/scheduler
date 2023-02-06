@@ -24,9 +24,20 @@ export default function Application(props) {
     appointments: {},
     interviewers: {}
   })
+
+  // Immutable update appointments object
   function bookInterview(id, interview) {
-    console.log(id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
   }
+
   // Data management
   const setDay = day => setState({ ...state, day });
   const dailyAppointments = getAppointmentsForDay(state, state.day);
