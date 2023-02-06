@@ -25,9 +25,22 @@ export default function Appointment(props) {
   const SHOW = "SHOW";
   const CREATE = "CREATE";
 
+  // Manipulate Appointment visual mode
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+  
+  // Create appointment
+ 
+
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+    
+    props.bookInterview(props.appointmentId, interview)
+  }
 
   return (
     <Fragment >
@@ -45,6 +58,7 @@ export default function Appointment(props) {
                 interviewers={props.interviewers}
                 student={interview.student}
                 onCancel={() => back()}
+                onSave={save}
               />
             )}
       </article>
