@@ -24,7 +24,9 @@ export default function Application(props) {
     appointments: {},
     interviewers: {}
   })
-
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
   // Data management
   const setDay = day => setState({ ...state, day });
   const dailyAppointments = getAppointmentsForDay(state, state.day);
@@ -38,6 +40,8 @@ export default function Application(props) {
         {...appointment}
         interview={interview}
         interviewers={interviewers}
+        appointmentId={appointment.id}
+        bookInterview={bookInterview}
       />
     )}
   )
@@ -77,7 +81,7 @@ export default function Application(props) {
           alt="Lighthouse Labs"
         />
       </section>
-      <section className="schedule">
+      <section className="schedule" >
         {appointmentSchedule}
         <Appointment key="last" time="5pm" />
       </section>
