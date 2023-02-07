@@ -25,8 +25,8 @@ export default function Application(props) {
     interviewers: {}
   })
 
-  // Immutable update appointments object
   function bookInterview(id, interview) {
+    // Immutable update -> appointments object
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -37,11 +37,14 @@ export default function Application(props) {
       [id]: appointment
     };
 
-    setState({
-      ...state,
-      appointments
-    });
-  
+    return axios.put(`/api/appointments/${id}`, {interview})
+      .then(() => {
+        setState({
+          ...state,
+          appointments
+        })
+      })
+      .catch((err) => console.log(err));
   }
 
   // Data management
@@ -63,7 +66,7 @@ export default function Application(props) {
     )}
   )
 
-  // Routes
+  // GET Routes
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
