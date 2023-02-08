@@ -47,7 +47,7 @@ export default function Application(props) {
       .catch((err) => console.log(err));
   }
 
-  function cancelInterview(id, interview) {
+  function cancelInterview(id) {
      // (Immutable) update appointments object
     const appointment = {
       ...state.appointments[id],
@@ -60,7 +60,7 @@ export default function Application(props) {
     };
     console.log(appointment, appointments)
 
-    return axios.put(`/api/appointments/${id}`, {interview})
+    return axios.delete(`/api/appointments/${id}`)
       .then(() => {
         setState({
           ...state,
