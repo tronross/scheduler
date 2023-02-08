@@ -2,7 +2,7 @@
 // (Appointment) Error Component
 ////////////////////////////////////
 
-import React from "react";
+import React from 'react';
 
 // Component
 export default function Error(props) {

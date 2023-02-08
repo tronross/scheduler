@@ -2,10 +2,10 @@
 // (Appointment) Confirm Component
 ////////////////////////////////////
 
-import React from "react";
+import React from 'react';
 
 // Child Component
-import Button from "components/Button";
+import Button from 'components/Button';
 
 // Component
 export default function Confirm(props) {
