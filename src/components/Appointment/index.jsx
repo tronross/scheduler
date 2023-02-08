@@ -2,18 +2,18 @@
 // Appointment Component
 ////////////////////////////
 
-import React, { Fragment } from "react";
-import useVisualMode from "hooks/useVisualMode";
+import React, { Fragment } from 'react';
+import useVisualMode from 'hooks/useVisualMode';
 
 // Stylesheet
-import "./styles.scss"
+import './styles.scss'
 
 // Child Components
-import Header from "./Header";
-import Show from "./Show";
-import Empty from "./Empty";
-import Form from "./Form";
-import Status from "./Status";
+import Header from './Header';
+import Show from './Show';
+import Empty from './Empty';
+import Form from './Form';
+import Status from './Status';
 
 // Component
 export default function Appointment(props) {
@@ -22,10 +22,11 @@ export default function Appointment(props) {
   const interviewerObj = {...interview.interviewer};
 
   // Mode constants
-  const EMPTY = "EMPTY";
-  const SHOW = "SHOW";
-  const CREATE = "CREATE";
-  const SAVING = "SAVING";
+  const EMPTY = 'EMPTY';
+  const SHOW = 'SHOW';
+  const CREATE = 'CREATE';
+  const SAVING = 'SAVING';
+  const DELETING = 'DELETING'
 
   // Manipulate Appointment visual mode
   const { mode, transition, back } = useVisualMode(
@@ -68,6 +69,11 @@ export default function Appointment(props) {
             {mode === SAVING && (
               <Status
                 message={"Saving..."}
+              />
+            )}
+            {mode === DELETING && (
+              <Status 
+                message={"Deleting..."}
               />
             )}
       </article>

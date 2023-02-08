@@ -2,24 +2,24 @@
 // Application Component
 ////////////////////////////
 
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 // Helper functions
-import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from 'helpers/selectors';
 
 // Child Components
-import DayList from "./DayList";
-import Appointment from "./Appointment";
+import DayList from './DayList';
+import Appointment from './Appointment';
 
 // Stylesheet
-import "components/Application.scss";
+import 'components/Application.scss';
 
 // Component
 export default function Application(props) {
   // State
   const [state, setState] = useState({
-    day: "Monday",
+    day: 'Monday',
     days: [],
     appointments: {},
     interviewers: {}
@@ -84,6 +84,7 @@ export default function Application(props) {
         interviewers={interviewers}
         appointmentId={appointment.id}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     )}
   )
