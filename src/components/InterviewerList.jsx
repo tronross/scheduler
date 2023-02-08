@@ -2,13 +2,13 @@
 // InterviewerList Component
 ///////////////////////////////////
 
-import React from "react";
+import React from 'react';
 
 // Child Component
-import InterviewerListItem from "./InterviewerListItem";
+import InterviewerListItem from './InterviewerListItem';
 
 // Stylesheet
-import "components/InterviewerList.scss"
+import 'components/InterviewerList.scss'
 
 // Component
 export default function InterviewerList(props) {
