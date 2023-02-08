@@ -52,7 +52,7 @@ export default function Appointment(props) {
   function deleteAppointment() {
     transition(CONFIRM);
   }
-  
+
   function confirmChoice() {
     transition(DELETING);
     
@@ -82,7 +82,7 @@ export default function Appointment(props) {
               <Form
                 interviewers={props.interviewers}
                 student={interview.student}
-                onCancel={() => back}
+                onCancel={back}
                 onSave={save}
               />
             )}
