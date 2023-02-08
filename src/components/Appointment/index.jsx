@@ -14,6 +14,7 @@ import Show from './Show';
 import Empty from './Empty';
 import Form from './Form';
 import Status from './Status';
+import Confirm from './Confirm';
 
 // Component
 export default function Appointment(props) {
@@ -26,7 +27,8 @@ export default function Appointment(props) {
   const SHOW = 'SHOW';
   const CREATE = 'CREATE';
   const SAVING = 'SAVING';
-  const DELETING = 'DELETING'
+  const DELETING = 'DELETING';
+  const CONFIRM = 'CONFIRM';
 
   // Manipulate Appointment visual mode
   const { mode, transition, back } = useVisualMode(
@@ -44,8 +46,24 @@ export default function Appointment(props) {
 
     props.bookInterview(props.appointmentId, interview)
       .then (() => transition(SHOW));
-  
   }
+
+  // Delete appointment
+  function deleteAppointment() {
+    transition(CONFIRM);
+  }
+  
+  function confirmChoice() {
+    transition(DELETING);
+    
+    props.cancelInterview(props.appointmentId)
+      .then(() => transition(EMPTY));
+  }
+
+  function cancelChoice() {
+    back();
+  }
+
 
   return (
     <Fragment >
@@ -56,6 +74,8 @@ export default function Appointment(props) {
               <Show 
                 student={interview.student}
                 interviewer={interviewerObj}
+                onDelete={deleteAppointment}
+                appointmentId={props.appointmentId}
               />
             )}
             {mode === CREATE && (
@@ -69,6 +89,12 @@ export default function Appointment(props) {
             {mode === SAVING && (
               <Status
                 message={"Saving..."}
+              />
+            )}
+            {mode === CONFIRM && (
+              <Confirm
+                onConfirm={confirmChoice}
+                onCancel={cancelChoice}
               />
             )}
             {mode === DELETING && (
