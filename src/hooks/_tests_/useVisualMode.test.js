@@ -1,30 +1,30 @@
 ////////////////////////////////////
 // useVisualMode Hook Unit Tests
 ////////////////////////////////////
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from '@testing-library/react-hooks';
 
-import useVisualMode from "hooks/useVisualMode";
+import useVisualMode from 'hooks/useVisualMode';
 
 // Mode constants
-const FIRST = "FIRST";
-const SECOND = "SECOND";
-const THIRD = "THIRD";
+const FIRST = 'FIRST';
+const SECOND = 'SECOND';
+const THIRD = 'THIRD';
 
 // Unit tests
-test("useVisualMode should initialize with default value", () => {
+test('useVisualMode should initialize with default value', () => {
   const { result } = renderHook(() => useVisualMode(FIRST));
 
   expect(result.current.mode).toBe(FIRST);
 });
 
-test("useVisualMode should transition to another mode", () => {
+test('useVisualMode should transition to another mode', () => {
   const { result } = renderHook(() => useVisualMode(FIRST));
 
   act(() => result.current.transition(SECOND));
   expect(result.current.mode).toBe(SECOND);
 });
 
-test("useVisualMode should return to previous mode", () => {
+test('useVisualMode should return to previous mode', () => {
   const { result } = renderHook(() => useVisualMode(FIRST));
 
   act(() => result.current.transition(SECOND));
@@ -40,20 +40,20 @@ test("useVisualMode should return to previous mode", () => {
   expect(result.current.mode).toBe(FIRST);
 });
 
-test("useVisualMode should not return to previous mode if already at initial", () => {
+test('useVisualMode should not return to previous mode if already at initial', () => {
   const { result } = renderHook(() => useVisualMode(FIRST));
 
   act(() => result.current.back());
   expect(result.current.mode).toBe(FIRST);
 });
 
-test("useVisualMode should replace the current mode", () => {
+test('useVisualMode should replace the current mode', () => {
   const { result } = renderHook(() => useVisualMode(FIRST));
 
   act(() => result.current.transition(SECOND));
   expect(result.current.mode).toBe(SECOND);
 
-  // Passing "true" to transition(THIRD, true) says "Transition to THIRD by REPLACING SECOND"
+  // Passing 'true' to transition(THIRD, true) says 'Transition to THIRD by REPLACING SECOND'
   act(() => result.current.transition(THIRD, true));
   expect(result.current.mode).toBe(THIRD);
 
