@@ -47,6 +47,15 @@ export default function Application(props) {
       .catch((err) => console.log(err));
   }
 
+  function cancelInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+
+    return axios.put(`/api/appointments/${id}`, {interview})
+  }
+
   // Data management
   const setDay = day => setState({ ...state, day });
   const dailyAppointments = getAppointmentsForDay(state, state.day);
