@@ -2,9 +2,9 @@
 // DayList Component
 /////////////////////////
 
-import React from "react";
+import React from 'react';
 
-import DayListItem from "./DayListItem";
+import DayListItem from './DayListItem';
 
 // Component
 export default function DayList(props) {

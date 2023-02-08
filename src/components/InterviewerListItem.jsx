@@ -2,11 +2,11 @@
 // InterviewerListItem Component
 ///////////////////////////////////
 
-import React from "react";
-import classNames from "classnames";
+import React from 'react';
+import classNames from 'classnames';
 
 // Stylesheet
-import "components/InterviewerListItem.scss"
+import 'components/InterviewerListItem.scss'
 
 // Component
 export default function InterviewerListItem(props)  {
