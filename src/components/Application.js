@@ -105,6 +105,7 @@ export default function Application(props) {
     });
   }, [])
   
+  // Return Component
   return (
     <main className="layout">
       <section className="sidebar">
