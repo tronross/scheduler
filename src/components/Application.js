@@ -26,7 +26,7 @@ export default function Application(props) {
   })
 
   function bookInterview(id, interview) {
-    // Immutable update -> appointments object
+    // (Immutable) update appointments object
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -48,12 +48,25 @@ export default function Application(props) {
   }
 
   function cancelInterview(id, interview) {
+     // (Immutable) update appointments object
     const appointment = {
       ...state.appointments[id],
       interview: null
     };
 
+    const appointments ={
+      ...state.appointments,
+      [id]:appointment
+    };
+
     return axios.put(`/api/appointments/${id}`, {interview})
+      .then(() => {
+        setState({
+          ...state,
+          appointments
+        })
+      })
+      .catch((err) => console.log(err));
   }
 
   // Data management
