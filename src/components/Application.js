@@ -43,8 +43,7 @@ export default function Application(props) {
           ...state,
           appointments
         })
-      })
-      .catch((err) => console.log(err));
+      });
   }
 
   function cancelInterview(id) {
