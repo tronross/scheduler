@@ -15,6 +15,7 @@ import Empty from './Empty';
 import Form from './Form';
 import Status from './Status';
 import Confirm from './Confirm';
+import Error from './Error';
 
 // Component
 export default function Appointment(props) {
@@ -30,6 +31,7 @@ export default function Appointment(props) {
   const DELETING = 'DELETING';
   const CONFIRM = 'CONFIRM';
   const EDIT = 'EDIT';
+  const ERROR_SAVE = 'ERROR_SAVE';
 
   // Manipulate Appointment visual mode
   const { mode, transition, back } = useVisualMode(
@@ -47,7 +49,8 @@ export default function Appointment(props) {
       transition(SAVING);
 
       props.bookInterview(props.appointmentId, interview)
-        .then (() => transition(SHOW));
+      .then (() => transition(SHOW))
+      .catch((err) => transition(ERROR_SAVE, true));
     }
   }
 
@@ -115,6 +118,12 @@ export default function Appointment(props) {
               onCancel={back}
               onSave={save}
               edit={true}
+              />
+            )}
+            {mode === ERROR_SAVE && (
+              <Error
+                message={'The Appointment was not Saved'}
+                onClose={back}
               />
             )}
       </article>
