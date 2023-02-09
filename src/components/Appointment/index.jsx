@@ -97,6 +97,7 @@ export default function Appointment(props) {
             )}
             {mode === CONFIRM && (
               <Confirm
+                message={'Are You Sure?'}
                 onConfirm={confirmChoice}
                 onCancel={back}
               />
