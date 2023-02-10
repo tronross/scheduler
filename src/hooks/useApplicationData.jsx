@@ -4,7 +4,8 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
- 
+
+// Hook
 export default function useAppicationData() {
   // Define state
   const [state, setState] = useState({
@@ -14,9 +15,26 @@ export default function useAppicationData() {
     interviewers: {}
   })
 
-  // Manage interviews
+  // GET Routes (set/update state)
+  useEffect(() => {
+    Promise.all([
+      axios.get('/api/days'),
+      axios.get('/api/appointments'),
+      axios.get('/api/interviewers')
+    ])
+      .then((responses) => {
+        setState(prev => ({...prev, days: responses[0].data,
+                                    appointments: responses[1].data, 
+                                    interviewers: responses[2].data}));
+      });
+  }, [])
+
+  // Manage state when changing day in the DayList
+  const setDay = day => setState({ ...state, day });
+
+  // Manage Individual Interviews
+  // New interview
   function bookInterview(id, interview) {
-    // (Immutable) update appointments object
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -36,8 +54,8 @@ export default function useAppicationData() {
       });
   };
   
+  // Delete interview
   function cancelInterview(id) {
-    // (Immutable) update appointments object
     const appointment = {
       ...state.appointments[id],
       interview: null
@@ -56,24 +74,7 @@ export default function useAppicationData() {
         })
       });
   };
-    
-  // Manage state when changing day in the DayList
-  const setDay = day => setState({ ...state, day });
-  
-  // GET Routes, set/update state
-  useEffect(() => {
-    Promise.all([
-      axios.get('/api/days'),
-      axios.get('/api/appointments'),
-      axios.get('/api/interviewers')
-    ])
-      .then((responses) => {
-        setState(prev => ({...prev, days: responses[0].data,
-                                    appointments: responses[1].data, 
-                                    interviewers: responses[2].data}));
-      });
-  }, [])
-    
+     
   return {
            state,
            setDay,
