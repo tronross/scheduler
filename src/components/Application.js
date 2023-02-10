@@ -18,6 +18,7 @@ import useApplicationData from 'hooks/useApplicationData'
 
 // Component
 export default function Application(props) {
+  // Import state management from hook
   const {
           state,
           setDay,
@@ -25,26 +26,24 @@ export default function Application(props) {
           cancelInterview
       } = useApplicationData();
    
-  // Data management
- 
-  const dailyAppointments = getAppointmentsForDay(state, state.day);
-
   const interviewers = getInterviewersForDay(state, state.day);
   
   // Render appointment schedule
-  const appointmentSchedule = dailyAppointments.map((appointment) => {
+  const appointmentSchedule = getAppointmentsForDay(state, state.day).map(
+    appointment => {
     
-                    return (
-      <Appointment
-      key={appointment.id}
-      {...appointment}
-      interview={getInterview(state, appointment.interview)}
-      interviewers={interviewers}
-        appointmentId={appointment.id}
-        bookInterview={bookInterview}
-        cancelInterview={cancelInterview}
-      />
-    )}
+      return (
+        <Appointment
+          key={appointment.id}
+          {...appointment}
+          interview={getInterview(state, appointment.interview)}
+          interviewers={interviewers}
+          appointmentId={appointment.id}
+          bookInterview={bookInterview}
+          cancelInterview={cancelInterview}
+        />
+      );
+    }
   );
 
   
