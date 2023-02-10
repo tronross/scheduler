@@ -32,6 +32,7 @@ export default function Appointment(props) {
   const CONFIRM = 'CONFIRM';
   const EDIT = 'EDIT';
   const ERROR_SAVE = 'ERROR_SAVE';
+  const ERROR_DELETE = 'ERROR_DELETE';
 
   // Manipulate Appointment visual mode
   const { mode, transition, back } = useVisualMode(
@@ -50,7 +51,7 @@ export default function Appointment(props) {
 
       props.bookInterview(props.appointmentId, interview)
       .then (() => transition(SHOW))
-      .catch((err) => transition(ERROR_SAVE, true));
+      .catch(() => transition(ERROR_SAVE, true));
     }
   }
 
@@ -59,11 +60,13 @@ export default function Appointment(props) {
     transition(CONFIRM);
   }
 
-  function confirmChoice() {
-    transition(DELETING);
+  function destroy() {
+    transition(DELETING, true);
     
-    props.cancelInterview(props.appointmentId)
-      .then(() => transition(EMPTY));
+    props
+      .cancelInterview(props.appointmentId)
+      .then(() => transition(EMPTY))
+      .catch(() => transition(ERROR_DELETE, true));
   }
 
   // Edit appointment
@@ -101,7 +104,7 @@ export default function Appointment(props) {
             {mode === CONFIRM && (
               <Confirm
                 message={'Are You Sure You Would Like to Delete?'}
-                onConfirm={confirmChoice}
+                onConfirm={destroy}
                 onCancel={back}
               />
             )}
@@ -123,6 +126,12 @@ export default function Appointment(props) {
             {mode === ERROR_SAVE && (
               <Error
                 message={'The Appointment was not Saved'}
+                onClose={back}
+              />
+            )}
+            {mode === ERROR_DELETE && (
+              <Error
+                message={'The Appointment was not Deleted'}
                 onClose={back}
               />
             )}
