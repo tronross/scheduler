@@ -67,8 +67,7 @@ export default function useAppicationData() {
     }
 
   newDays.splice(dayIndex, 1, updatedDay);
-  return newDays;
-  
+  return newDays; 
 }
 
   // Manage Individual Interviews
@@ -85,16 +84,16 @@ export default function useAppicationData() {
     };
     
     return axios.put(`/api/appointments/${id}`, {interview})
-    .then(() => updateSpots(id, [...state.days], {...appointments}))  
-    .then((days) => { 
-      console.log(days);
-        setState({
-          ...state,
-          appointments,
-          days
-        })
-      });
-  };
+      .then(() => updateSpots(id, [...state.days], {...appointments}))  
+      .then((days) => { 
+        console.log(days);
+          setState({
+            ...state,
+            appointments,
+            days
+          })
+        });
+    };
   
   // Delete interview
   function cancelInterview(id) {
@@ -108,15 +107,16 @@ export default function useAppicationData() {
       [id]:appointment
     };
     
-    return axios.delete(`/api/appointments/${id}`)
-      
-    .then(() => {
-        setState({
-          ...state,
-          appointments
-        })
-      });
-  };
+    return axios.delete(`/api/appointments/${id}`) 
+      .then(() => updateSpots(id, [...state.days], {...appointments}))
+      .then((days) => {
+          setState({
+            ...state,
+            appointments,
+            days
+          })
+        });
+    };
      
   return {
            state,
