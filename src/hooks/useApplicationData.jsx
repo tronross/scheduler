@@ -32,6 +32,34 @@ export default function useAppicationData() {
   // Manage state when changing day in the DayList
   const setDay = day => setState({ ...state, day });
 
+  function updateSpots(id, days, appointmentsToFilter) {
+    const aTF = appointmentsToFilter;
+    
+    function spotCounter() {
+      let spotCount = 0;
+      let dayIndex = 0;
+
+      for (const appDay of days) {
+      const daySlots = appDay.appointments;
+
+      if (daySlots.includes(id)) {
+        dayIndex = (appDay.id) - 1;
+        console.log (dayIndex)
+        for (const slot of daySlots) {
+          if (!aTF[slot].interview) {
+            spotCount++;
+          }
+        }
+      }
+    }
+    return spotCount;
+  }
+  
+
+  const spots = spotCounter();
+  console.log(`Spots ${spots}`)
+}
+
   // Manage Individual Interviews
   // New interview
   function bookInterview(id, interview) {
@@ -46,7 +74,8 @@ export default function useAppicationData() {
     };
     
     return axios.put(`/api/appointments/${id}`, {interview})
-      .then(() => {
+    .then(() => updateSpots(id, [...state.days], {...appointments}))  
+    .then(() => { 
         setState({
           ...state,
           appointments
