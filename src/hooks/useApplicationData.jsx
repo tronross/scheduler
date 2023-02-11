@@ -32,16 +32,15 @@ export default function useAppicationData() {
   // Manage state when changing day in the DayList
   const setDay = day => setState({ ...state, day });
 
-  function updateSpots(id, days, appointmentsToFilter) {
-    const aTF = appointmentsToFilter;
+  function updateSpots(id, days, appointments) {
+    const apps = appointments;
     let newDays = [...days];
     
-    // function spotCounter() {
-      let spotCount = 0;
-      let dayIndex = 0;
-      let dayId = 0;
+    let spotCount = 0;
+    let dayIndex = 0;
+    let dayId = 0;
 
-      for (const appDay of days) {
+    for (const appDay of days) {
       const daySlots = [...appDay.appointments];
 
       if (daySlots.includes(id)) {
@@ -49,12 +48,13 @@ export default function useAppicationData() {
         dayIndex = (appDay.id) - 1;
         console.log (`dayIndex: ${dayIndex}, dayId: ${dayId}, appointments: ${days[dayIndex].appointments}`)
         for (const slot of daySlots) {
-          if (!aTF[slot].interview) {
+          if (!apps[slot].interview) {
             spotCount++;
           }
         }
       }
-    }
+    };
+
     const updatedDay = {
       id: dayId,
       name: days[dayIndex].name,
@@ -62,6 +62,7 @@ export default function useAppicationData() {
       interviewers: days[dayIndex].interviewers,
       spots: spotCount 
     }
+
   newDays.splice(dayIndex, 1, updatedDay);
   return newDays;
   
