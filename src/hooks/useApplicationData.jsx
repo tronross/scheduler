@@ -50,8 +50,7 @@ export default function useAppicationData() {
       // Find day containing appointment id, and set update variables
       if (daySlots.includes(id)) {
         dayId = appDay.id;
-        dayIndex = (appDay.id) - 1;
-        console.log (`dayIndex: ${dayIndex}, dayId: ${dayId}, appointments: ${days[dayIndex].appointments}`)
+        dayIndex = appDay.id - 1;
         // Count spots
         for (const slot of daySlots) {
           if (!apps[slot].interview) {
@@ -89,7 +88,6 @@ export default function useAppicationData() {
     return axios.put(`/api/appointments/${id}`, {interview})
       .then(() => updateSpots(id, [...state.days], {...appointments}))  
       .then((days) => { 
-        console.log(days);
           setState({
             ...state,
             appointments,
