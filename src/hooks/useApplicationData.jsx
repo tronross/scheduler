@@ -41,12 +41,12 @@ export default function useAppicationData() {
       let dayId = 0;
 
       for (const appDay of days) {
-      const daySlots = appDay.appointments;
+      const daySlots = [...appDay.appointments];
 
       if (daySlots.includes(id)) {
         dayId = appDay.id;
         dayIndex = (appDay.id) - 1;
-        console.log (dayIndex)
+        console.log (dayIndex, dayId, days[dayId].appointments)
         for (const slot of daySlots) {
           if (!aTF[slot].interview) {
             spotCount++;
@@ -56,9 +56,9 @@ export default function useAppicationData() {
     }
     const updatedDay = {
       id: dayId,
-      name: days[dayId].name,
-      appointments: days[dayId].appointments,
-      interviewers: days[dayId].interviewers,
+      name: days[dayIndex].name,
+      appointments: days[dayIndex].appointments,
+      interviewers: days[dayIndex].interviewers,
       spots: spotCount 
     }
   console.log(`Updated day: ${updatedDay}`)
@@ -81,7 +81,8 @@ export default function useAppicationData() {
     
     return axios.put(`/api/appointments/${id}`, {interview})
     .then(() => updateSpots(id, [...state.days], {...appointments}))  
-    .then(() => { 
+    .then((day) => { 
+      console.log(day, state.days);
         setState({
           ...state,
           appointments
