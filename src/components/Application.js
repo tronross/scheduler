@@ -31,7 +31,7 @@ export default function Application(props) {
   // Render appointment schedule
   const appointmentSchedule = getAppointmentsForDay(state, state.day).map(
     appointment => {
-    
+    // console.log(state.days)
       return (
         <Appointment
           key={appointment.id}
