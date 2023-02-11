@@ -35,14 +35,16 @@ export default function useAppicationData() {
   function updateSpots(id, days, appointmentsToFilter) {
     const aTF = appointmentsToFilter;
     
-    function spotCounter() {
+    // function spotCounter() {
       let spotCount = 0;
       let dayIndex = 0;
+      let dayId = 0;
 
       for (const appDay of days) {
       const daySlots = appDay.appointments;
 
       if (daySlots.includes(id)) {
+        dayId = appDay.id;
         dayIndex = (appDay.id) - 1;
         console.log (dayIndex)
         for (const slot of daySlots) {
@@ -52,12 +54,16 @@ export default function useAppicationData() {
         }
       }
     }
-    return spotCount;
-  }
+    const updatedDay = {
+      id: dayId,
+      name: days[dayId].name,
+      appointments: days[dayId].appointments,
+      interviewers: days[dayId].interviewers,
+      spots: spotCount 
+    }
+  console.log(`Updated day: ${updatedDay}`)
+  return updatedDay;
   
-
-  const spots = spotCounter();
-  console.log(`Spots ${spots}`)
 }
 
   // Manage Individual Interviews
