@@ -34,7 +34,7 @@ export default function useAppicationData() {
 
   function updateSpots(id, days, appointmentsToFilter) {
     const aTF = appointmentsToFilter;
-    const newDays = [...days];
+    let newDays = [...days];
     
     // function spotCounter() {
       let spotCount = 0;
@@ -47,7 +47,7 @@ export default function useAppicationData() {
       if (daySlots.includes(id)) {
         dayId = appDay.id;
         dayIndex = (appDay.id) - 1;
-        console.log (dayIndex, dayId, days[dayId].appointments)
+        console.log (`dayIndex: ${dayIndex}, dayId: ${dayId}, appointments: ${days[dayIndex].appointments}`)
         for (const slot of daySlots) {
           if (!aTF[slot].interview) {
             spotCount++;
@@ -62,8 +62,7 @@ export default function useAppicationData() {
       interviewers: days[dayIndex].interviewers,
       spots: spotCount 
     }
-  newDays = days.splice(dayIndex, 1, updatedDay);
-  // console.log(`Updated day: ${updatedDay}`)
+  newDays.splice(dayIndex, 1, updatedDay);
   return newDays;
   
 }
