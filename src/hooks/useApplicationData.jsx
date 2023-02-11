@@ -39,7 +39,7 @@ export default function useAppicationData() {
     const apps = appointments;
     let newDays = [...days];
     
-    // Declare variables to update day (and days)
+    // Declare variables for updating day (and days)
     let spotCount = 0;
     let dayIndex = 0;
     let dayId = 0;
