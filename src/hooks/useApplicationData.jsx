@@ -34,6 +34,7 @@ export default function useAppicationData() {
 
   function updateSpots(id, days, appointmentsToFilter) {
     const aTF = appointmentsToFilter;
+    const newDays = [...days];
     
     // function spotCounter() {
       let spotCount = 0;
@@ -61,9 +62,9 @@ export default function useAppicationData() {
       interviewers: days[dayIndex].interviewers,
       spots: spotCount 
     }
-    const updatedDays = days.splice(dayIndex, 1, updatedDay);
+  newDays = days.splice(dayIndex, 1, updatedDay);
   // console.log(`Updated day: ${updatedDay}`)
-  return updatedDays;
+  return newDays;
   
 }
 
@@ -82,8 +83,8 @@ export default function useAppicationData() {
     
     return axios.put(`/api/appointments/${id}`, {interview})
     .then(() => updateSpots(id, [...state.days], {...appointments}))  
-    .then((days) => { 
-      console.log(days);
+    .then((yays) => { 
+      console.log(yays);
         setState({
           ...state,
           appointments
