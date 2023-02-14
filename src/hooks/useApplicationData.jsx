@@ -41,16 +41,12 @@ export default function useAppicationData() {
     
     // Declare variables for updating day (and days)
     let spotCount = 0;
-    let dayIndex = 0;
-    let dayId = 0;
 
     for (const appDay of days) {
       const daySlots = [...appDay.appointments];
 
       // Find day containing appointment id, and set update variables
       if (daySlots.includes(id)) {
-        dayId = appDay.id;
-        dayIndex = appDay.id - 1;
         // Count spots
         for (const slot of daySlots) {
           if (!apps[slot].interview) {
@@ -58,17 +54,9 @@ export default function useAppicationData() {
           }
         }
       }
+      
     };
-
-    const updatedDay = {
-      id: dayId,
-      name: days[dayIndex].name,
-      appointments: days[dayIndex].appointments,
-      interviewers: days[dayIndex].interviewers,
-      spots: spotCount 
-    }
-
-  newDays.splice(dayIndex, 1, updatedDay);
+  
   return newDays; 
 }
 
