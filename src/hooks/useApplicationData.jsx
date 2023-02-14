@@ -53,6 +53,7 @@ export default function useAppicationData() {
             spotCount++;
           }
         }
+        // Update spots
         [appDay].spots = spotCount;
       }
     };
