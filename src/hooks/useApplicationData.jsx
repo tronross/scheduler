@@ -53,8 +53,8 @@ export default function useAppicationData() {
             spotCount++;
           }
         }
+        [appDay].spots = spotCount;
       }
-      
     };
   
   return newDays; 
@@ -91,7 +91,7 @@ export default function useAppicationData() {
       interview: null
     };
     
-    const appointments ={
+    const appointments = {
       ...state.appointments,
       [id]:appointment
     };
