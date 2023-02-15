@@ -36,7 +36,6 @@ export default function useAppicationData() {
   // Calculate number of spots remaining in day when saving or deleting an appointment
   
   function updateSpots(id, days, appointments) {
-    const apps = appointments;
     const newDays = [...days];
     
     // Declare variables for updating spots in day
@@ -49,7 +48,7 @@ export default function useAppicationData() {
       if (daySlots.includes(id)) {
         // Count spots
         for (const slot of daySlots) {
-          if (!apps[slot].interview) {
+          if (!appointments[slot].interview) {
             spotCount++;
           }
         }
