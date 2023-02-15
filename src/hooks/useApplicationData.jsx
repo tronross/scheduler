@@ -47,6 +47,7 @@ export default function useAppicationData() {
 
       // Find day containing appointment id, and set update variables
       if (daySlots.includes(id)) {
+        console.log(`Before: ${appDay.spots}`)
         // Count spots
         for (const slot of daySlots) {
           if (!apps[slot].interview) {
@@ -54,7 +55,8 @@ export default function useAppicationData() {
           }
         }
         // Update spots
-        [appDay].spots = spotCount;
+        appDay.spots = spotCount;
+        console.log(`After: ${appDay.spots}`)
       }
     };
   
