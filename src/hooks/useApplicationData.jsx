@@ -36,7 +36,6 @@ export default function useAppicationData() {
   // Calculate number of spots remaining in day when saving or deleting an appointment
   
   function updateSpots(id, days, appointments) {
-    const newDays = [...days];
     let spotCount = 0;
 
     for (const appDay of days) {
@@ -55,7 +54,7 @@ export default function useAppicationData() {
       }
     };
   
-  return newDays; 
+  return days; 
 }
 
   // Manage Individual Interviews
