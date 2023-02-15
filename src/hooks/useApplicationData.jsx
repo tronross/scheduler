@@ -37,14 +37,12 @@ export default function useAppicationData() {
   
   function updateSpots(id, days, appointments) {
     const newDays = [...days];
-    
-    // Declare variables for updating spots in day
     let spotCount = 0;
 
     for (const appDay of days) {
       const daySlots = [...appDay.appointments];
 
-      // Find day containing appointment id, and set update variables
+      // Find day containing appointment id
       if (daySlots.includes(id)) {
         // Count spots
         for (const slot of daySlots) {
