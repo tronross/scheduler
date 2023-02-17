@@ -20,7 +20,6 @@ describe('Form', () => {
   ];
 
   // Unit tests
-  //1
   it('renders without student name if not provided', () => {
     
   const { getByPlaceholderText } = render(
@@ -30,7 +29,6 @@ describe('Form', () => {
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
   });
 
-  //2
   it('renders with initial student name', () => {
 
     const { getByTestId } = render(
@@ -40,12 +38,15 @@ describe('Form', () => {
     expect(getByTestId("student-name-input")).toHaveValue("Lydia Miller-Jones");
   });
 
-  //3
   it("validates that the student name is not blank", () => {
     const onSave = jest.fn();
   
     const { getByText } = render(
-      <Form onSave={onSave} interviewer={interviewers[0].id} interviewers={interviewers} student={undefined}/>
+      <Form onSave={onSave}
+        interviewer={interviewers[0].id}
+        interviewers={interviewers}
+        student={undefined}
+      />
     );
   
     fireEvent.click(getByText("Save"));
@@ -54,17 +55,13 @@ describe('Form', () => {
     expect(onSave).not.toHaveBeenCalled();
   });
   
-  //4
   it("validates that the interviewer cannot be null", () => {
-    /* 1. Create the mock onSave function */
-    const onSave = jest.fn((name, interviewer) => true);
-  
-    /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the interviewer prop should be null */
+    const onSave = jest.fn();
+ 
     const { getByText } = render(
       <Form onSave={onSave} interviewers={interviewers} student={"Lydia Miller-Jones"}/>
     );
   
-    /* 3. Click the save button */
     fireEvent.click(getByText("Save"));
   
     expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
