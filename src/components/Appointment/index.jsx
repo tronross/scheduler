@@ -41,7 +41,6 @@ export default function Appointment(props) {
   
   // Create appointment
   function save(name, interviewer) {
-    if (interviewer && name !== '') {
       const interview = {
         student: name,
         interviewer
@@ -52,7 +51,6 @@ export default function Appointment(props) {
       props.bookInterview(props.appointmentId, interview)
       .then (() => transition(SHOW))
       .catch(() => transition(ERROR_SAVE, true));
-    }
   }
 
   // Delete appointment
