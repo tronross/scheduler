@@ -68,7 +68,6 @@ describe('Form', () => {
     expect(onSave).not.toHaveBeenCalled();
   });
   
-  //5
   it("calls onSave function when the name and interviewer is defined", () => {
     const onSave = jest.fn();
   
@@ -77,7 +76,8 @@ describe('Form', () => {
         onSave={onSave}
         interviewer={interviewers[0].id}
         interviewers={interviewers}
-        student={"Lydia Miller-Jones"}/>
+        student={"Lydia Miller-Jones"}
+      />
     );
   
     fireEvent.click(getByText("Save"));
