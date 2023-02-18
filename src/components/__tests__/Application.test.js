@@ -3,7 +3,7 @@
 ////////////////////////////
 
 import React from 'react';
-import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM, getAllByTestId } from '@testing-library/react';
+import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM, getAllByTestId, getByAltText, getByPlaceholderText } from '@testing-library/react';
 
 import Application from 'components/Application';
 
@@ -31,8 +31,22 @@ describe('Application', () =>{
     // const appointments = getAllByTestId(container, 'appointment');
     const appointment =  getAllByTestId(container, 'appointment')[0];
 
+    fireEvent.click(getByAltText(appointment, 'Add'));
+    
+    await waitForElement(() => getByPlaceholderText(appointment, 'Enter Student Name'));
+
+    fireEvent.change(getByPlaceholderText(appointment, 'Enter Student Name'), {
+      target: { value: "Lydia Miller-Jones" }
+    });
+    fireEvent.click(getByAltText(appointment, 'Sylvia Palmer'));
+    fireEvent.click(getByText(appointment, 'Save'));
+
+    expect(getByText(appointment, 'Saving...'));
+
+  
+
     console.log(prettyDOM(appointment));
-    console.log(prettyDOM(container));
+    // console.log(prettyDOM(container));
 
   });
 
