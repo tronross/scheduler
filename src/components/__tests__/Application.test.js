@@ -3,7 +3,7 @@
 ////////////////////////////
 
 import React from 'react';
-import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM } from '@testing-library/react';
+import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM, getAllByTestId } from '@testing-library/react';
 
 import Application from 'components/Application';
 
@@ -28,6 +28,10 @@ describe('Application', () =>{
 
     await waitForElement(() => getByText(container, 'Archie Cohen'));
 
+    // const appointments = getAllByTestId(container, 'appointment');
+    const appointment =  getAllByTestId(container, 'appointment')[0];
+
+    console.log(prettyDOM(appointment));
     console.log(prettyDOM(container));
 
   });
