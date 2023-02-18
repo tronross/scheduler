@@ -1,5 +1,5 @@
 ////////////////////////////
-// Application Unit Test
+// Application Tests
 ////////////////////////////
 
 import React from "react";
