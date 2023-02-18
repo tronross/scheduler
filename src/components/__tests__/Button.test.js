@@ -1,6 +1,6 @@
-///////////////////////
-// Button Unit Tests
-///////////////////////
+/////////////////////
+// Button Tests
+/////////////////////
 
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
