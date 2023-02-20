@@ -3,7 +3,7 @@
 ////////////////////////////
 
 import React from 'react';
-import { render, cleanup, waitForElement, fireEvent, getByText, getAllByTestId, getByAltText, getByPlaceholderText, queryByText, prettyDOM, getByTestId } from '@testing-library/react';
+import { render, cleanup, waitForElement, fireEvent, getByText, getAllByTestId, getByAltText, getByPlaceholderText, queryByText, getByTestId } from '@testing-library/react';
 import axios from 'axios';
 
 import Application from 'components/Application';
@@ -114,7 +114,7 @@ describe('Application', () =>{
   it('shows the save error when failing to save an appointment', async () => {
     axios.put.mockRejectedValueOnce();
     
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
     
     await waitForElement(() => getByText(container, 'Archie Cohen'));
     
@@ -138,7 +138,7 @@ describe('Application', () =>{
     
     axios.delete.mockRejectedValueOnce();
     
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
     
     await waitForElement(() => getByText(container, 'Archie Cohen'));
     
@@ -159,9 +159,6 @@ describe('Application', () =>{
     fireEvent.click(getByAltText(appointmentToDelete, 'Close'));
 
     expect(getByText(appointmentToDelete, 'Tori Malcolm')).toBeInTheDocument();
-    
-    console.log(prettyDOM(appointmentToDelete));
-    // debug();
   }); 
 
 });
