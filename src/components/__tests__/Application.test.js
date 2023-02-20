@@ -111,8 +111,35 @@ describe('Application', () =>{
   });
 
 
-  it('shows the save error when failing to save an appointment', () => {
+  it('shows the save error when failing to save an appointment', async () => {
     axios.put.mockRejectedValueOnce();
+    
+    const { container, debug } = render(<Application />);
+    
+    await waitForElement(() => getByText(container, 'Archie Cohen'));
+    
+    const appointmentToEdit = getAllByTestId(container, 'appointment').find(appointment =>
+      queryByText(appointment,'Archie Cohen')
+      );
+      
+    fireEvent.click(getByAltText(appointmentToEdit, 'Edit'));
+    
+    fireEvent.click(queryByText(appointmentToEdit, 'Save'));
+
+    await waitForElement(() => getByText(appointmentToEdit, 'The Appointment was not Saved'));
+      
+    fireEvent.click(getByAltText(appointmentToEdit, 'Close'));
+
+    expect(getByText(appointmentToEdit, 'Tori Malcolm')).toBeInTheDocument();
+    
+    console.log(prettyDOM(appointmentToEdit));
+    // debug();
   });
+
+
+  it('shows the delete error when failing to delete an existing appointment', async () => {
+
+    axios.put.mockRejectedValueOnce();
+  }); 
 
 });
