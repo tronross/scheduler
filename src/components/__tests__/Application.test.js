@@ -3,7 +3,7 @@
 ////////////////////////////
 
 import React from 'react';
-import { render, cleanup, waitForElement, fireEvent, getByText, getAllByTestId, getByAltText, getByPlaceholderText, queryByText } from '@testing-library/react';
+import { render, cleanup, waitForElement, fireEvent, getByText, getAllByTestId, getByAltText, getByPlaceholderText, queryByText, prettyDOM } from '@testing-library/react';
 
 import Application from 'components/Application';
 
@@ -49,6 +49,42 @@ describe('Application', () =>{
     );
 
     expect(getByText(monday, 'no spots remaining')).toBeInTheDocument;
+  });
+
+
+  it('loads data, cancels an interview and increases the spots remaining for Monday by 1', async () => {
+    
+    const { container } = render(<Application />);
+
+    await waitForElement(() => getByText(container, 'Archie Cohen'));
+
+    const appointmentToCancel = getAllByTestId(container, 'appointment').find(appointment =>
+      queryByText(appointment,'Archie Cohen')
+    );
+
+    fireEvent.click(getByAltText(appointmentToCancel, 'Delete'));
+
+    expect(getByText(appointmentToCancel, 'Are You Sure You Would Like to Delete?'));
+
+    fireEvent.click(getByText(appointmentToCancel, 'Confirm'));
+
+    expect(getByText(appointmentToCancel, 'Deleting...')).toBeInTheDocument();
+
+    await waitForElement(() => getByAltText(appointmentToCancel, 'Add'));
+    
+    const monday = getAllByTestId(container, 'day').find(day =>
+      queryByText(day,'Monday')
+    );
+
+    expect(getByText(monday, '2 spots remaining')).toBeInTheDocument();
+
+
+    console.log(prettyDOM(appointmentToCancel));
+
+  
+    // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
+
+
 
   });
 
