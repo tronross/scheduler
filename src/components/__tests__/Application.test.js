@@ -83,7 +83,7 @@ describe('Application', () =>{
 
   it('loads data, edits an interview and keeps the spots remaining for Monday the same', async () => {
    
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -108,12 +108,6 @@ describe('Application', () =>{
     );
 
     expect(getByText(monday, '1 spot remaining')).toBeInTheDocument();
-
-    console.log(prettyDOM(appointmentToEdit));
-
-    // 7. Wait until the above element loads with the student name "Dave desJardins" displayed.
-    // 8. Check that the DayListItem with the text "Monday" still has the text "1 spot remaining".
-      debug();
   });
 
 
