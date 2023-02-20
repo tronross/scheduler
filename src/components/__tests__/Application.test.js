@@ -54,7 +54,7 @@ describe('Application', () =>{
 
   it('loads data, cancels an interview and increases the spots remaining for Monday by 1', async () => {
     
-    const { container } = render(<Application />);
+    const { container, debug } = render(<Application />);
 
     await waitForElement(() => getByText(container, 'Archie Cohen'));
 
@@ -64,7 +64,7 @@ describe('Application', () =>{
 
     fireEvent.click(getByAltText(appointmentToCancel, 'Delete'));
 
-    expect(getByText(appointmentToCancel, 'Are You Sure You Would Like to Delete?'));
+    expect(getByText(appointmentToCancel, 'Are You Sure You Would Like to Delete?')).toBeInTheDocument;
 
     fireEvent.click(getByText(appointmentToCancel, 'Confirm'));
 
@@ -80,7 +80,7 @@ describe('Application', () =>{
 
 
     console.log(prettyDOM(appointmentToCancel));
-
+      debug();
   
     // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
 
