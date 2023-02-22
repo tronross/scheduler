@@ -21,22 +21,22 @@ export default function Form(props) {
 
   const cancel = function() {
     reset();
-    setError("");
+    setError('');
     props.onCancel();
   }
 
   function validate() {
-    if (student === "") {
+    if (student === '') {
       setError("Student Name Cannot Be Blank");
       return;
     }
   
     if (interviewer === null) {
-      setError("Please Select an Interviewer");
+      setError('Please Select an Interviewer');
       return;
     }
 
-    setError("");
+    setError('');
     props.onSave(student, interviewer);
   }
 
