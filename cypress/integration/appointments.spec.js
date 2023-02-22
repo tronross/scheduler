@@ -13,6 +13,8 @@ describe('Appointments', () => {
       .first()
       .click();
 
+    cy.get('[data-testid=student-name-input]')
+      .type('Lydia Miller-Jones')
   })
 
 });
