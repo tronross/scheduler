@@ -28,6 +28,22 @@ describe('Appointments', () => {
     cy.contains('.appointment__card--show','Tori Malcolm');
   });
 
+  it('should edit an interview', () => {
+    
+    cy.get('[alt=Edit]')
+      .first()
+      .click({ force: true });
 
+    cy.get('[data-testid=student-name-input]').clear().type('Margo DiPiaggo');
+    cy.get('[alt="Tori Malcolm"]').click();
+
+    cy.contains('Save').click();
+
+    cy.contains('.appointment__card--show','Margo DiPiaggo');
+    cy.contains('.appointment__card--show','Tori Malcolm');
+  });
+
+  it('')
+  
 
 });
