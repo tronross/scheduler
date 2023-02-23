@@ -49,8 +49,12 @@ describe('Appointments', () => {
       .first()
       .click({ force: true });
 
-    cy.contains('Confirm').click();    
+    cy.contains('Confirm').click();
+    
+    cy.contains('Deleting...');
+    cy.contains('Deleting...').should('not.exist');
+
+    cy.contains('.appointment__card--show').should('not.exist');
   });
-  
 
 });
