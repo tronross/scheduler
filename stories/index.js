@@ -182,7 +182,7 @@ storiesOf('InterviewerList', module)
         onCancel={action('onCancel')}
       />
     ))
-    .add('Status', () => <Status message='Deleting' />)
+    .add('Status', () => <Status message='Deleting...' />)
     .add('Error', () => <Error message='Could not delete the appointment.' onClose={action('onClose')} />)
     .add('Edit', () => (
       <Form
@@ -193,7 +193,13 @@ storiesOf('InterviewerList', module)
         onCancel={action('onCancel')}
       />
     ))
-    .add('Create', () => <Form interviewers={interviewers} onSave={action('onSave')} onCancel={action('onCancel')} />)
+    .add('Create', () => (
+      <Form
+        interviewers={interviewers}
+        onSave={action('onSave')}
+        onCancel={action('onCancel')}
+      />
+    ))
     .add('Appointment Empty', () => (
       <Fragment>
         <Appointment id={1} time='4pm' />
