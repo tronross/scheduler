@@ -13,6 +13,7 @@ describe('Appointments', () => {
 
   });
 
+  // Tests
   it('should book an interview', () => {
 
     cy.get('[alt=Add]')
@@ -27,6 +28,7 @@ describe('Appointments', () => {
     cy.contains('.appointment__card--show','Lydia Miller-Jones');
     cy.contains('.appointment__card--show','Tori Malcolm');
   });
+
 
   it('should edit an interview', () => {
     
@@ -43,6 +45,7 @@ describe('Appointments', () => {
     cy.contains('.appointment__card--show','Tori Malcolm');
   });
 
+  
   it('should cancel an interview', () => {
 
     cy.get('[alt=Delete]')
