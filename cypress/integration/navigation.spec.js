@@ -8,6 +8,7 @@ describe('Navigation', () => {
     cy.visit('/');
   });
 
+  
   it('should navigate to Tuesday', () => {
     cy.visit('/')
  
