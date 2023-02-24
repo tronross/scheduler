@@ -36,7 +36,7 @@ describe('Application', () =>{
     fireEvent.click(getByAltText(appointment, 'Add'));
 
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
-      target: { value: "Lydia Miller-Jones" }
+      target: { value: 'Lydia Miller-Jones' }
     });
 
     fireEvent.click(getByAltText(appointment, 'Sylvia Palmer'));
@@ -87,7 +87,7 @@ describe('Application', () =>{
    
     const { container } = render(<Application />);
 
-    await waitForElement(() => getByText(container, "Archie Cohen"));
+    await waitForElement(() => getByText(container, 'Archie Cohen'));
 
     const appointmentToEdit = getAllByTestId(container, 'appointment').find(appointment =>
       queryByText(appointment,'Archie Cohen')
@@ -96,7 +96,7 @@ describe('Application', () =>{
     fireEvent.click(getByAltText(appointmentToEdit, 'Edit'));
 
     fireEvent.change(getByTestId(appointmentToEdit, 'student-name-input'), {
-      target: { value: "Dave desJardins" }
+      target: { value: 'Dave desJardins' }
     });
 
     fireEvent.click(queryByText(appointmentToEdit, 'Save'));

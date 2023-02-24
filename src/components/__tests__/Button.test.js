@@ -9,6 +9,8 @@ import Button from 'components/Button';
 
 afterEach(cleanup);
 
+// Tests
+
 describe('Button', () => {
   it('renders its `children` prop as text', () => {
     const { getByText } = render(<Button>Default</Button>);
