@@ -21,9 +21,8 @@ describe('Form', () => {
 
   // Tests
   it('renders without student name if not provided', () => {
-    
-  const { getByPlaceholderText } = render(
-    <Form interviewers={interviewers} />
+    const { getByPlaceholderText } = render(
+      <Form interviewers={interviewers} />
     );
 
     expect(getByPlaceholderText('Enter Student Name')).toHaveValue('');
@@ -33,7 +32,7 @@ describe('Form', () => {
   it('renders with initial student name', () => {
 
     const { getByTestId } = render(
-      <Form interviewers={interviewers} student="Lydia Miller-Jones" />
+      <Form interviewers={interviewers} student='Lydia Miller-Jones' />
     );
 
     expect(getByTestId('student-name-input')).toHaveValue('Lydia Miller-Jones');
@@ -62,7 +61,7 @@ describe('Form', () => {
     const onSave = jest.fn();
  
     const { getByText } = render(
-      <Form onSave={onSave} interviewers={interviewers} student={"Lydia Miller-Jones"}/>
+      <Form onSave={onSave} interviewers={interviewers} student={'Lydia Miller-Jones'}/>
     );
   
     fireEvent.click(getByText('Save'));
@@ -102,7 +101,7 @@ describe('Form', () => {
     const { getByText, getByPlaceholderText, queryByText } = render(
       <Form
         interviewers={interviewers}
-        name="Lydia Mill-Jones"
+        name='Lydia Mill-Jones'
         onSave={jest.fn()}
         onCancel={onCancel}
       />
