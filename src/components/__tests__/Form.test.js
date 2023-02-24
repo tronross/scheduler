@@ -14,8 +14,8 @@ describe('Form', () => {
   const interviewers = [
     {
       id: 1,
-      student: "Sylvia Palmer",
-      avatar: "https://i.imgur.com/LpaY82x.png"
+      student: 'Sylvia Palmer',
+      avatar: 'https://i.imgur.com/LpaY82x.png'
     }
   ];
 
@@ -84,8 +84,8 @@ describe('Form', () => {
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
     expect(onSave).not.toHaveBeenCalled();
   
-    fireEvent.change(getByPlaceholderText("Enter Student Name"), {
-      target: { value: "Lydia Miller-Jones" }
+    fireEvent.change(getByPlaceholderText('Enter Student Name'), {
+      target: { value: 'Lydia Miller-Jones' }
     });
   
     fireEvent.click(getByText('Save'));
@@ -111,7 +111,7 @@ describe('Form', () => {
     fireEvent.click(getByText('Save'));
 
     fireEvent.change(getByPlaceholderText('Enter Student Name'), {
-      target: { value: "Lydia Miller-Jones" }
+      target: { value: 'Lydia Miller-Jones' }
     });
   
     fireEvent.click(getByText('Cancel'));
