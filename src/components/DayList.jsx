@@ -4,6 +4,7 @@
 
 import React from 'react';
 
+// Child Component
 import DayListItem from './DayListItem';
 
 // Component

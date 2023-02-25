@@ -45,7 +45,7 @@ export default function Application(props) {
     }
   );
 
-  // Return Component
+  // Render Component
   return (
     <main className="layout">
       <section className="sidebar">

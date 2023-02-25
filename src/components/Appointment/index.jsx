@@ -3,6 +3,7 @@
 ////////////////////////////
 
 import React, { Fragment } from 'react';
+
 import useVisualMode from 'hooks/useVisualMode';
 
 // Stylesheet
@@ -72,7 +73,7 @@ export default function Appointment(props) {
     transition(EDIT);
   }
 
-  // Return Component
+  // Render Component
   return (
     <Fragment >
       <Header time={props.time} />

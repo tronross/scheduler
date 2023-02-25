@@ -4,7 +4,7 @@
 
 import React, { useState } from 'react';
 
-// Child Component
+// Child Components
 import Button from 'components/Button';
 import InterviewerList from 'components/InterviewerList';
 
@@ -40,7 +40,7 @@ export default function Form(props) {
     props.onSave(student, interviewer);
   }
 
-  // Return Component
+  // Render Component
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
