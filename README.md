@@ -46,7 +46,7 @@ and the dev-dependencies are
     sass: ^1.53.0
 ```
 
-Fork and clone the [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) (provided by [Lighthouse Labs](https://www.lighthouselabs.ca/)) into a new directory, and follow the [`README.md`](https://github.com/lighthouse-labs/scheduler-api#readme) instructions as provided in `scheduler-api` to set it up.
+Fork and clone the [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) (provided by [Lighthouse Labs](https://www.lighthouselabs.ca/)) into a new directory, and follow the [`README.md`](https://github.com/lighthouse-labs/scheduler-api#readme) instructions as provided in [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) to set it up.
 
 <img src ="public_png_gif\int-sched-2.gif" alt="Interview Scheduler empty appointment gif">
 
@@ -80,9 +80,12 @@ npm test
 cd scheduler
 npm run storybook
 ```
-<img src ="public_png_gif\int-sched-3.png" alt="Interview Scheduler empty appointment form screenshot">
 
 ## Exploring the App
+
+<img src ="public_png_gif\int-sched-3.png" alt="Interview Scheduler empty appointment form screenshot">
+
+
 <b>Interview Scheduler</b> is intended to demonstrate a modern, intuitive web application that harnesses the elegance, speed and interactivity of the SPA as showcased by [React](https://reactjs.org/).
 
 The user can see appointment availability by day at a glance by reviewing the column at the left of the screen, and select the day of their choice by clicking on it. This displays the appointment slots for the day, available and booked, and the user can create a new appointment by clicking on the plus/add button which displays a form where the user can enter their name and select an interviewer from avatars arrayed as round buttons.
