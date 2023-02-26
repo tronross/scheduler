@@ -6,7 +6,7 @@
 
 Interview Scheduler is a single-page application (SPA) that allows users to book interviews between students and interviewers, built in [React](https://reactjs.org/) as part of the [Lighthouse Labs Web Development Flex Program](https://www.lighthouselabs.ca/en/web-development-flex-program).
 
-The App allows users to add, edit and delete appointments in real time, manipulating state using built-in and custom hooks, and reading and updating the database via axios calls. As part of development, and with a goal of expanding understanding of the frameworks, tests were written utilizing [Jest](https://jestjs.io/), [Storybook](https://storybook.js.org/) and [Cypress](https://docs.cypress.io/guides/overview/why-cypress). 
+The App allows users to add, edit and delete appointments in real time, manipulating state using built-in and custom hooks, and reading and updating the database on the API server via axios calls. While building the App, with a goal of learning the frameworks and practicing test-driven development, tests were written utilizing [Jest](https://jestjs.io/), [Storybook](https://storybook.js.org/) and [Cypress](https://docs.cypress.io/guides/overview/why-cypress). 
 
 ## Setup
 Assuming you have [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/), and [git](https://git-scm.com/) installed on your computer, you can proceed by:
@@ -48,6 +48,8 @@ and the dev-dependencies are
 
 Fork and clone the [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) (provided by Lighthouse Labs) into a new directory, and follow the `README.md` instructions as provided in `scheduler-api` to set it up.
 
+<img src ="public_gif\int-sched-2.gif" alt="Interview Scheduler empty appointment gif">
+
 ## Running the Interview Scheduler
 Both servers must run concurrently.
 
@@ -78,6 +80,8 @@ npm test
 cd scheduler
 npm run storybook
 ```
+<img src ="public_gif\int-sched-3.png" alt="Interview Scheduler empty appointment gif">
+
 ## Stack
 The front-end was built with [React](https://reactjs.org/), [JSX](https://reactjs.org/docs/introducing-jsx.html), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), and [SASS](https://sass-lang.com/documentation/syntax).
 
