@@ -68,12 +68,14 @@ Visit http://localhost:8000 in the browser
 ### Running Jest Test Framework
 
 ```
+cd scheduler
 npm test
 ```
 
 ### Running Storybook Visual Testbed
 
 ```
+cd scheduler
 npm run storybook
 ```
 ## Stack
