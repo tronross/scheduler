@@ -6,7 +6,7 @@
 
 Interview Scheduler is a single-page application (SPA) that allows users to book interviews between students and interviewers, built in [React](https://reactjs.org/) as part of the [Lighthouse Labs Web Development Flex Program](https://www.lighthouselabs.ca/en/web-development-flex-program).
 
-The App allows users to add, edit and delete appointments in real time, manipulating state using built-in and custom hooks, and reading and updating the database on the API server via axios calls. While building the App, with a goal of learning the frameworks and practicing test-driven development, tests were written utilizing [Jest](https://jestjs.io/), [Storybook](https://storybook.js.org/) and [Cypress](https://docs.cypress.io/guides/overview/why-cypress). 
+The App allows users to add, edit and delete appointments in real time, manipulating state using built-in (and custom) hooks, and reading and updating the database on the API server via axios calls. While building the App, with a goal of learning the frameworks and practicing test-driven development, tests were written utilizing [Jest](https://jestjs.io/), [Storybook](https://storybook.js.org/) and [Cypress](https://docs.cypress.io/guides/overview/why-cypress). 
 
 ## Setup
 Assuming you have [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/), and [git](https://git-scm.com/) installed on your computer, you can proceed by:
