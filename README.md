@@ -82,15 +82,15 @@ npm run storybook
 ```
 
 ## Exploring the App
-
-<img src ="public_png_gif\int-sched-3.png" alt="Interview Scheduler empty appointment form screenshot">
-
-
 <b>Interview Scheduler</b> is intended to demonstrate a modern, intuitive web application that harnesses the elegance, speed and interactivity of the SPA as showcased by [React](https://reactjs.org/).
+
+<img src ="public_png_gif\int-sched-4.png" alt="Interview Scheduler empty appointment screenshot">
+
+
 
 The user can see appointment availability by day at a glance by reviewing the column at the left of the screen, and select the day of their choice by clicking on it. This displays the appointment slots for the day, available and booked, and the user can create a new appointment by clicking on the plus/add button which displays a form where the user can enter their name and select an interviewer from avatars arrayed as round buttons.
 
-<img src ="public_png_gif\int-sched-4.png" alt="Interview Scheduler empty appointment screenshot">
+<img src ="public_png_gif\int-sched-3.png" alt="Interview Scheduler empty appointment form screenshot">
 
 Hovering over a booked appointment reveals `edit` and `delete` icons which guide the user step-wise to the relevant outcome.
 
