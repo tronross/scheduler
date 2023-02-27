@@ -98,6 +98,6 @@ Hovering over a booked appointment reveals `edit` and `delete` icons which guide
 
 
 ## Stack
-The front-end was built with [React](https://reactjs.org/), [JSX](https://reactjs.org/docs/introducing-jsx.html), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), and [SASS](https://sass-lang.com/documentation/syntax).
+The front-end was built with [React](https://reactjs.org/), [JSX](https://reactjs.org/docs/introducing-jsx.html), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), and [SASS](https://sass-lang.com/documentation/syntax). 
 
-The back-end was built with [Express](https://expressjs.com/), [Node.js](https://nodejs.org/en/), and [Axios](https://axios-http.com/docs/intro).
+The back-end was built with [Node.js](https://nodejs.org/en/) and [Axios](https://axios-http.com/docs/intro).
