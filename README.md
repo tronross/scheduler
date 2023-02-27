@@ -82,7 +82,7 @@ npm run storybook
 ```
 
 ## Exploring the App
-<b>Interview Scheduler</b> is intended to demonstrate a modern, intuitive web application that harnesses the elegance, speed and interactivity of the SPA as showcased by [React](https://reactjs.org/).
+<b>Interview Scheduler</b> is intended to showcase a modern, intuitive web application that harnesses the elegance, speed and interactivity of the SPA enabled by [React](https://reactjs.org/).
 
 <img src ="public\README_images\int-sched-4.png" alt="Interview Scheduler empty appointment screenshot">
 
