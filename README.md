@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-<img src ="public_png_gif\int-sched-1.gif" alt="Interview Scheduler screenshot gif">
+<img src ="public\README_images\int-sched-1.gif" alt="Interview Scheduler screenshot gif">
 
 ## Project Summary
 
@@ -48,7 +48,7 @@ and the dev-dependencies are
 
 Fork and clone the [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) (provided by [Lighthouse Labs](https://www.lighthouselabs.ca/)) into a new directory, and follow the [`README.md`](https://github.com/lighthouse-labs/scheduler-api#readme) instructions as provided in [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) to set it up.
 
-<img src ="public_png_gif\int-sched-2.gif" alt="Interview Scheduler empty appointment gif">
+<img src ="public\README_images\int-sched-2.gif" alt="Interview Scheduler empty appointment gif">
 
 ## Running the Interview Scheduler
 Both servers must run concurrently.
@@ -84,17 +84,17 @@ npm run storybook
 ## Exploring the App
 <b>Interview Scheduler</b> is intended to demonstrate a modern, intuitive web application that harnesses the elegance, speed and interactivity of the SPA as showcased by [React](https://reactjs.org/).
 
-<img src ="public_png_gif\int-sched-4.png" alt="Interview Scheduler empty appointment screenshot">
+<img src ="public\README_images\int-sched-4.png" alt="Interview Scheduler empty appointment screenshot">
 
 
 
 The user can see appointment availability by day at a glance by reviewing the column at the left of the screen, and select the day of their choice by clicking on it. This displays the appointment slots for the day, available and booked, and the user can create a new appointment by clicking on the plus/add button which displays a form where the user can enter their name and select an interviewer from avatars arrayed as round buttons.
 
-<img src ="public_png_gif\int-sched-3.png" alt="Interview Scheduler empty appointment form screenshot">
+<img src ="public\README_images\int-sched-3.png" alt="Interview Scheduler empty appointment form screenshot">
 
 Hovering over a booked appointment reveals `edit` and `delete` icons which guide the user step-wise to the relevant outcome.
 
-<img src ="public_png_gif\int-sched-5.png" alt="Interview Scheduler empty appointment screenshot">
+<img src ="public\README_images\int-sched-5.png" alt="Interview Scheduler empty appointment screenshot">
 
 
 ## Stack
