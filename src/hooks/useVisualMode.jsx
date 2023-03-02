@@ -4,6 +4,16 @@
 
 import { useState } from 'react';
 
+/**
+ * Returns visual mode to Appointment component.
+ *
+ * @param {string} initialMode The initial visual mode of the Appointment component.
+ **
+ * transition method 
+ * @param {string} newMode The visual mode to transition the Appointment component to.
+ * @param {boolean} replace Removes inappropriate modes from history.
+ */
+
 export default function useVisualMode(initialMode) {
   const [history, setHistory] = useState([initialMode]);
 
