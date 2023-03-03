@@ -2,7 +2,14 @@
 // Selectors
 /////////////////////
 
-// getAppointmentsForDay
+
+/**
+ * Returns an array of appointment objects for the selected day.
+ *
+ * @param {object} state State object comprising all appointment data.
+ * @param {string} day Day to return appointments of.
+ */
+
 export function getAppointmentsForDay(state, day) {
   const rightDay = state.days.filter(dayObj => 
     dayObj.name === day
@@ -19,7 +26,7 @@ export function getAppointmentsForDay(state, day) {
   const appointmentsForDay = appointmentsIds.map((appId) => {
     return state.appointments[appId]
   });
-
+console.log(day)
   return appointmentsForDay
 };
 
