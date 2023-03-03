@@ -55,29 +55,25 @@ Both servers must run concurrently.
 ### Running the API Server
 Enter the `scheduler-api` directory and launch the server
 ```
-cd scheduler-api
-npm start
+cd scheduler-api && npm start
 ```
 
 ### Running the Webpack Development Server
 Enter the `scheduler` directory and launch the server
 ```
-cd scheduler
-npm start
+cd scheduler && npm start
 ```
 Visit http://localhost:8000 in the browser
 ### Running Jest Test Framework
 
 ```
-cd scheduler
-npm test
+cd scheduler && npm test
 ```
 
 ### Running Storybook Visual Testbed
 
 ```
-cd scheduler
-npm run storybook
+cd scheduler && npm run storybook
 ```
 
 ## Exploring the App
