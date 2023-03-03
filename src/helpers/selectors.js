@@ -26,11 +26,17 @@ export function getAppointmentsForDay(state, day) {
   const appointmentsForDay = appointmentsIds.map((appId) => {
     return state.appointments[appId]
   });
-console.log(day)
+
   return appointmentsForDay
 };
 
-// getInterviewersForDay
+/**
+ * Returns an array of interviewer objects for the selected day.
+ *
+ * @param {object} state State object comprising all appointment data.
+ * @param {string} day Day to return appointments of.
+ */
+
 export function getInterviewersForDay(state, day) {
   const rightDay = state.days.filter(dayObj => 
     dayObj.name === day
