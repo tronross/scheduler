@@ -4,7 +4,7 @@
 
 ## Project Summary
 
-<b>Interview Scheduler</b> is a single-page application (SPA) that allows users to book interviews between students and interviewers, built in [React](https://reactjs.org/) as part of the [Lighthouse Labs Web Development Flex Program](https://www.lighthouselabs.ca/en/web-development-flex-program).
+<b>Interview Scheduler</b> is a single-page application (SPA) that allows users to book appointments between students and interviewers, built in [React](https://reactjs.org/) as part of the [Lighthouse Labs Web Development Flex Program](https://www.lighthouselabs.ca/en/web-development-flex-program).
 
 The App allows users to add, edit and delete appointments in real time, manipulating state using built-in (and custom) hooks, and reading and updating the database on the API server via [Axios](https://axios-http.com/docs/intro) calls. While building the App, with a goal of learning the frameworks and best practices of test-driven development, a plethora of tests were written utilizing [Jest](https://jestjs.io/), [Storybook](https://storybook.js.org/) and [Cypress](https://docs.cypress.io/guides/overview/why-cypress). 
 
@@ -13,8 +13,7 @@ Assuming you have [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com
 
 Clone the repository and enter its directory on your local machine.
 ```
-git clone git@github.com:tronross/scheduler.git scheduler
-cd scheduler
+git clone git@github.com:tronross/scheduler.git scheduler && cd scheduler
 ```
 Install the dependencies
 ```
