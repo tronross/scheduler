@@ -6,7 +6,7 @@
 /**
  * Returns an array of appointment objects for the selected day.
  *
- * @param {object} state State object comprising all appointment data.
+ * @param {object} state State object comprising all appointments data.
  * @param {string} day Day to return appointments of.
  */
 
@@ -33,7 +33,7 @@ export function getAppointmentsForDay(state, day) {
 /**
  * Returns an array of interviewer objects for the selected day.
  *
- * @param {object} state State object comprising all appointment data.
+ * @param {object} state State object comprising all appointments data.
  * @param {string} day Day to return appointments of.
  */
 
@@ -57,10 +57,18 @@ export function getInterviewersForDay(state, day) {
   return interviewersForDay;
 };
 
-// getInterview
+/**
+ * Returns an interview object for the selected appointment slot.
+ *
+ * @param {object} state State object comprising all appointments data.
+ * @param {object} interview Contains interviewer id and student name for appointment.
+ */
+
 export function getInterview(state, interview) {
   const interviewers = state.interviewers;
   let interviewerKey;
+
+  console.log(interview)
 
   // edge case error handling
   if (!interview) {
