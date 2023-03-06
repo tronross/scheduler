@@ -8,6 +8,7 @@
  *
  * @param {object} state  All current appointments data.
  * @param {string} day Selected day.
+ * @returns {array} Selected day's appointment objects.
  */
 
 export function getAppointmentsForDay(state, day) {
