@@ -36,6 +36,7 @@ export function getAppointmentsForDay(state, day) {
  *
  * @param {object} state All current appointments data.
  * @param {string} day Selected day.
+ * @returns {array} Selected day's interviewer objects.
  */
 
 export function getInterviewersForDay(state, day) {
@@ -63,6 +64,7 @@ export function getInterviewersForDay(state, day) {
  *
  * @param {object} state All current appointments data.
  * @param {object} interview Interviewer id and student name for appointment.
+ * @returns {object} Interview for the appointment.
  */
 
 export function getInterview(state, interview) {
