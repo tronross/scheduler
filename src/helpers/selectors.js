@@ -71,8 +71,6 @@ export function getInterview(state, interview) {
   const interviewers = state.interviewers;
   let interviewerKey;
 
-  console.log(interview)
-
   // edge case error handling
   if (!interview) {
     return null;
