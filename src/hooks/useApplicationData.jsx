@@ -33,8 +33,14 @@ export default function useAppicationData() {
   // Manage state when changing day in the DayList
   const setDay = day => setState({ ...state, day });
 
-  // Calculate number of spots remaining in day when saving or deleting an appointment
-  
+ /**
+ * Returns an array of day objects.
+ *
+ * @param {number} id Selected appointment id.
+ * @param {array} days Current days state.
+ * @param {object} appointments Current appointments state.
+ * @returns {array} Returns an updated array of day objects.
+ */
   function updateSpots(id, days, appointments) {
     let spotCount = 0;
 
@@ -53,7 +59,7 @@ export default function useAppicationData() {
         appDay.spots = spotCount;
       }
     };
-  
+ 
   return days; 
 }
 
