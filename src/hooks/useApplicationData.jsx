@@ -64,7 +64,14 @@ export default function useAppicationData() {
 }
 
   // Manage Individual Interviews
-  // New interview
+
+  /**
+   * Updates state when booking a new interview.
+   *
+   * @param {number} id Selected appointment id.
+   * @param {object} interview Current days state.
+   * @setState Updates state to include new interview.
+   */
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
