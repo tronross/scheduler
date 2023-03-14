@@ -94,7 +94,11 @@ export default function useAppicationData() {
         });
     };
   
-  // Delete interview
+  /**
+  * Updates state when deleting an interview.
+  * @param {number} id Selected appointment id.
+  * @setState Updates state to include new interview availability.
+  */
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
