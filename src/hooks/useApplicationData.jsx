@@ -5,8 +5,14 @@
 import { useState, useEffect } from 'react';
 
 import axios from 'axios';
-
+////////
 // Hook
+////////
+
+/**
+ * Returns an object containing the state object, and methods.
+ * @returns {object} Returns an object containing the state object, and methods: setDay,bookInterview, cancelInterview.
+ */
 export default function useAppicationData() {
   // Define state
   const [state, setState] = useState({
