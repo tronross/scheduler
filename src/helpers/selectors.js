@@ -2,7 +2,6 @@
 // Selectors
 /////////////////////
 
-
 /**
  * Returns an array of appointment objects for the selected day.
  *
