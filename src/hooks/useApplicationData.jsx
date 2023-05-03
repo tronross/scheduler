@@ -30,23 +30,25 @@ export default function useAppicationData() {
       axios.get('/api/interviewers')
     ])
       .then((responses) => {
-        setState(prev => ({...prev, days: responses[0].data,
-                                    appointments: responses[1].data, 
-                                    interviewers: responses[2].data}));
+        setState(prev => ({
+          ...prev, days: responses[0].data,
+          appointments: responses[1].data,
+          interviewers: responses[2].data
+        }));
       });
   }, [])
 
   // Manage state when changing day in the DayList
   const setDay = day => setState({ ...state, day });
 
- /**
- * Returns an array of day objects.
- *
- * @param {number} id Selected appointment id.
- * @param {array} days Current days state.
- * @param {object} appointments Current appointments state.
- * @returns {array} Returns an updated array of day objects.
- */
+  /**
+  * Returns an array of day objects.
+  *
+  * @param {number} id Selected appointment id.
+  * @param {array} days Current days state.
+  * @param {object} appointments Current appointments state.
+  * @returns {array} Returns an updated array of day objects.
+  */
   function updateSpots(id, days, appointments) {
     let spotCount = 0;
 
@@ -65,9 +67,9 @@ export default function useAppicationData() {
         appDay.spots = spotCount;
       }
     };
- 
-  return days; 
-}
+
+    return days;
+  }
 
   // Manage Individual Interviews
 
@@ -83,23 +85,23 @@ export default function useAppicationData() {
       ...state.appointments[id],
       interview: { ...interview }
     };
-    
+
     const appointments = {
       ...state.appointments,
       [id]: appointment
     };
-    
-    return axios.put(`/api/appointments/${id}`, {interview})
-      .then(() => updateSpots(id, [...state.days], {...appointments}))  
-      .then((days) => { 
-          setState({
-            ...state,
-            appointments,
-            days
-          })
-        });
-    };
-  
+
+    return axios.put(`/api/appointments/${id}`, { interview })
+      .then(() => updateSpots(id, [...state.days], { ...appointments }))
+      .then((days) => {
+        setState({
+          ...state,
+          appointments,
+          days
+        })
+      });
+  };
+
   /**
   * Updates state when deleting an interview.
   * @param {number} id Selected appointment id.
@@ -110,27 +112,27 @@ export default function useAppicationData() {
       ...state.appointments[id],
       interview: null
     };
-    
+
     const appointments = {
       ...state.appointments,
-      [id]:appointment
+      [id]: appointment
     };
-    
-    return axios.delete(`/api/appointments/${id}`) 
-      .then(() => updateSpots(id, [...state.days], {...appointments}))
+
+    return axios.delete(`/api/appointments/${id}`)
+      .then(() => updateSpots(id, [...state.days], { ...appointments }))
       .then((days) => {
-          setState({
-            ...state,
-            appointments,
-            days
-          })
-        });
-    };
-     
+        setState({
+          ...state,
+          appointments,
+          days
+        })
+      });
+  };
+
   return {
-           state,
-           setDay,
-           bookInterview,
-           cancelInterview
-         };
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
+  };
 }
