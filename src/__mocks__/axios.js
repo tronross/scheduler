@@ -1,5 +1,5 @@
 /////////////////////
-// Mock Axios
+// Axios Mocks
 /////////////////////
 
 // Fixtures
@@ -100,4 +100,3 @@ export default {
     });
   })
 }
-
