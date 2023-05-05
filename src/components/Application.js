@@ -15,19 +15,18 @@ import 'components/Application.scss';
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from 'helpers/selectors';
 import useApplicationData from 'hooks/useApplicationData'
 
-
 // Component
 export default function Application(props) {
   // Import state management from hook
   const {
-          state,
-          setDay,
-          bookInterview,
-          cancelInterview
-      } = useApplicationData();
-   
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
+  } = useApplicationData();
+
   const interviewers = getInterviewersForDay(state, state.day);
-  
+
   // Render appointment schedule
   const appointmentSchedule = getAppointmentsForDay(state, state.day).map(
     appointment => {
@@ -55,13 +54,13 @@ export default function Application(props) {
           alt="Interview Scheduler"
         />
         <hr className="sidebar__separator sidebar--centered" />
-          <nav className="sidebar__menu">
-            <DayList
-              days={state.days}
-              value={state.day}
-              onChange={setDay}
-            />
-          </nav>
+        <nav className="sidebar__menu">
+          <DayList
+            days={state.days}
+            value={state.day}
+            onChange={setDay}
+          />
+        </nav>
         <img
           className="sidebar__lhl sidebar--centered"
           src="images/lhl.png"
