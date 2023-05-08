@@ -35,7 +35,7 @@ const state = {
     }
   },
   interviewers: {
-    '1': {  
+    '1': {
       'id': 1,
       'name': 'Sylvia Palmer',
       'avatar': 'https://i.imgur.com/LpaY82x.png'
@@ -49,12 +49,12 @@ const state = {
       id: 3,
       name: 'Mildred Nazir',
       avatar: 'https://i.imgur.com/T2WwVfS.png'
-      },
+    },
     '4': {
       id: 4,
       name: 'Cohana Roy',
       avatar: 'https://i.imgur.com/FK8V841.jpg'
-      },
+    },
     '5': {
       id: 5,
       name: 'Sven Jones',

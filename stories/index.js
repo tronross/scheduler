@@ -48,7 +48,7 @@ storiesOf('DayListItem', module)
     backgrounds: [{ name: 'dark', value: '#222f3e', default: true }]
   })
   .add('Unselected', () => <DayListItem name='Monday' spots={5} />)
-  .add('Selected', () => <DayListItem name='Monday' spots={5} selected />) 
+  .add('Selected', () => <DayListItem name='Monday' spots={5} selected />)
   .add('Full', () => <DayListItem name='Monday' spots={0} />)
   .add('Clickable', () => (
     <DayListItem name='Tuesday' setDay={() => action('setDay')('Tuesday')} spots={5} />
@@ -86,7 +86,7 @@ storiesOf('DayList', module)
     <DayList days={days} value={'Tuesday'} onChange={action('setDay')} />
   ))
   .add('Wednesday', () => (
-      <DayList days={days} value={'Wednesday'} onChange={action('setDay')} />
+    <DayList days={days} value={'Wednesday'} onChange={action('setDay')} />
   ));
 
 // InterviewerListItem Stories
@@ -158,61 +158,61 @@ storiesOf('InterviewerList', module)
     />
   ));
 
-  // Appointment Stories
-  storiesOf('Appointment', module)
-    .addParameters({
-      backgrounds: [{ name: 'white', value: '#fff', default: true }]
-    })
-    .add('Appointment', () => <Appointment />)
-    .add('Appointment with Time', () => <Appointment time='12pm'/>)
-    .add('Header', () => <Header time='12pm' />)
-    .add('Empty', () => <Empty onAdd={action('onAdd')} />)
-    .add('Show', () => (
-      <Show 
-        student={'Barlon of Smellycastle'}
-        interviewer={interviewers[1]}
-        onEdit={action('onEdit')}
-        onDelete={action('onDelete')}
+// Appointment Stories
+storiesOf('Appointment', module)
+  .addParameters({
+    backgrounds: [{ name: 'white', value: '#fff', default: true }]
+  })
+  .add('Appointment', () => <Appointment />)
+  .add('Appointment with Time', () => <Appointment time='12pm' />)
+  .add('Header', () => <Header time='12pm' />)
+  .add('Empty', () => <Empty onAdd={action('onAdd')} />)
+  .add('Show', () => (
+    <Show
+      student={'Barlon of Smellycastle'}
+      interviewer={interviewers[1]}
+      onEdit={action('onEdit')}
+      onDelete={action('onDelete')}
+    />
+  ))
+  .add('Confirm', () => (
+    <Confirm
+      message='Delete the appointment?'
+      onConfirm={action('onConfirm')}
+      onCancel={action('onCancel')}
+    />
+  ))
+  .add('Status', () => <Status message='Deleting...' />)
+  .add('Error', () => <Error message='Could not delete the appointment.' onClose={action('onClose')} />)
+  .add('Edit', () => (
+    <Form
+      student={'Alison Synchro'}
+      interviewer={2}
+      interviewers={interviewers}
+      onSave={action('onSave')}
+      onCancel={action('onCancel')}
+    />
+  ))
+  .add('Create', () => (
+    <Form
+      interviewers={interviewers}
+      onSave={action('onSave')}
+      onCancel={action('onCancel')}
+    />
+  ))
+  .add('Appointment Empty', () => (
+    <Fragment>
+      <Appointment id={1} time='4pm' />
+      <Appointment time='5pm' />
+    </Fragment>
+  ))
+  .add('Appointment Booked', () => (
+    <Fragment>
+      <Appointment
+        id={1}
+        time='4pm'
+        interview={{ student: 'Lydia Miller-Jones', interviewer }}
       />
-    ))
-    .add('Confirm', () => (
-      <Confirm 
-        message='Delete the appointment?'
-        onConfirm={action('onConfirm')}
-        onCancel={action('onCancel')}
-      />
-    ))
-    .add('Status', () => <Status message='Deleting...' />)
-    .add('Error', () => <Error message='Could not delete the appointment.' onClose={action('onClose')} />)
-    .add('Edit', () => (
-      <Form
-        student={'Alison Synchro'}
-        interviewer={2}
-        interviewers={interviewers}
-        onSave={action('onSave')}
-        onCancel={action('onCancel')}
-      />
-    ))
-    .add('Create', () => (
-      <Form
-        interviewers={interviewers}
-        onSave={action('onSave')}
-        onCancel={action('onCancel')}
-      />
-    ))
-    .add('Appointment Empty', () => (
-      <Fragment>
-        <Appointment id={1} time='4pm' />
-        <Appointment time='5pm' />
-      </Fragment>
-    ))
-    .add('Appointment Booked', () => (
-      <Fragment>
-        <Appointment
-          id={1}
-          time='4pm'
-          interview={{ student: 'Lydia Miller-Jones', interviewer }}
-        />
-        <Appointment time='5pm' />
-      </Fragment>
+      <Appointment time='5pm' />
+    </Fragment>
   ));
