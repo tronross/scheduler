@@ -15,6 +15,13 @@ import axios from 'axios';
  * @returns {object} Returns an object containing the state object, and methods: setDay,bookInterview, cancelInterview.
  */
 export default function useAppicationData() {
+  // Open WebSocket
+  useEffect(() => {
+    const socket = new WebSocket (process.env.REACT_APP_WEBSOCKET_URL);
+  }, [])
+
+
+
   // Define state
   const [state, setState] = useState({
     day: 'Monday',
