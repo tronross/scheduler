@@ -18,6 +18,10 @@ export default function useAppicationData() {
   // Open WebSocket
   useEffect(() => {
     const socket = new WebSocket (process.env.REACT_APP_WEBSOCKET_URL);
+
+    socket.addEventListener("open", (event) => {
+      socket.send("Hello Server!");
+    });
   }, [])
 
 
