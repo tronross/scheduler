@@ -20,8 +20,12 @@ export default function useAppicationData() {
     const socket = new WebSocket (process.env.REACT_APP_WEBSOCKET_URL);
 
     socket.addEventListener("open", (event) => {
-      socket.send("Hello Server!");
+      socket.send("ping");
     });
+
+    socket.onmessage = (event) => {
+      console.log(`Message received: ${event.data}`);
+    };
   }, [])
 
 
