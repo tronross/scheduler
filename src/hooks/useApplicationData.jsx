@@ -17,14 +17,14 @@ import axios from 'axios';
 export default function useAppicationData() {
   // Open WebSocket
   useEffect(() => {
-    const socket = new WebSocket (process.env.REACT_APP_WEBSOCKET_URL);
+    const wsc = new WebSocket (process.env.REACT_APP_WEBSOCKET_URL);
 
-    socket.addEventListener("open", (event) => {
-      socket.send("ping");
+    wsc.addEventListener("open", (event) => {
+      wsc.send("ping");
     });
 
-    socket.onmessage = (event) => {
-      console.log(`Message received: ${event.data}`);
+    wsc.onmessage = (event) => {
+      console.log(`Message Received: ${event.data}`);
     };
   }, [])
 
