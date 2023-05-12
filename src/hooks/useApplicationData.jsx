@@ -26,6 +26,13 @@ export default function useAppicationData() {
     wsc.onmessage = (event) => {
       console.log(`Message Received: ${event.data}`);
     };
+
+    wsc.addEventListener("message", (event) => {
+      const message = JSON.parse(event.data);
+      if (message.type ==="SET_INTERVIEW") {
+        console.log("SET_INTERVIEW like now")
+      }
+    })
   }, [])
 
 
