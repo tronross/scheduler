@@ -61,6 +61,7 @@ export default function useAppicationData() {
       console.log(`Message Received: ${event.data}`);
     };
 
+    // Update appointments when receiving SET_INTERVIEW message
     wsc.addEventListener("message", (event) => {
       const message = JSON.parse(event.data);
 
@@ -87,7 +88,6 @@ export default function useAppicationData() {
       }
     }, [state.appointments]);
   })
-
 
 
   /**
