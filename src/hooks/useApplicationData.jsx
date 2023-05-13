@@ -18,7 +18,6 @@ export default function useAppicationData() {
 
 
 
-
   // Define state
   const [state, setState] = useState({
     day: 'Monday',
@@ -45,6 +44,51 @@ export default function useAppicationData() {
 
   // Manage state when changing day in the DayList
   const setDay = day => setState({ ...state, day });
+
+  // Use WebSockets to mirror state across multiple browsers
+  useEffect(() => {
+    if (!state.appointments['1']) {
+      return;
+    }
+
+    const wsc = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
+    wsc.addEventListener("open", (event) => {
+      wsc.send("ping");
+    });
+
+    wsc.onmessage = (event) => {
+      console.log(`Message Received: ${event.data}`);
+    };
+
+    wsc.addEventListener("message", (event) => {
+      const message = JSON.parse(event.data);
+
+      if (message.type === "SET_INTERVIEW") {
+        const appointment = {
+          ...state.appointments[message.id],
+          interview: message.interview
+        };
+
+        const appointments = {
+          ...state.appointments,
+          [message.id]: appointment
+        };
+
+        setState(prev => ({
+          ...prev, appointments
+        }))
+
+        return () => {
+          if (wsc.readyState === 1) {
+            wsc.close();
+          }
+        };
+      }
+    }, [state.appointments]);
+  })
+
+
 
   /**
   * Returns an array of day objects.
@@ -136,39 +180,7 @@ export default function useAppicationData() {
       });
   };
 
-  // Open WebSocket
-  useEffect(() => {
-    const wsc = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
-    wsc.addEventListener("open", (event) => {
-      wsc.send("ping");
-    });
-
-    wsc.onmessage = (event) => {
-      console.log(`Message Received: ${event.data}`);
-    };
-
-    wsc.addEventListener("message", (event) => {
-      const message = JSON.parse(event.data);
-
-      if (message.type === "SET_INTERVIEW") {
-        const appointment = {
-          ...state.appointments[message.id],
-          interview: { ...interview }
-        };
-
-        const appointments = {
-          ...state.appointments,
-          [id]: appointment
-        };
-
-        setState({
-          ...state,
-          appointments
-        })
-      }
-    });
-  }, [])
 
   return {
     state,
