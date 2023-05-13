@@ -15,25 +15,7 @@ import axios from 'axios';
  * @returns {object} Returns an object containing the state object, and methods: setDay,bookInterview, cancelInterview.
  */
 export default function useAppicationData() {
-  // Open WebSocket
-  useEffect(() => {
-    const wsc = new WebSocket (process.env.REACT_APP_WEBSOCKET_URL);
 
-    wsc.addEventListener("open", (event) => {
-      wsc.send("ping");
-    });
-
-    wsc.onmessage = (event) => {
-      console.log(`Message Received: ${event.data}`);
-    };
-
-    wsc.addEventListener("message", (event) => {
-      const message = JSON.parse(event.data);
-      if (message.type ==="SET_INTERVIEW") {
-        console.log("SET_INTERVIEW like now")
-      }
-    })
-  }, [])
 
 
 
@@ -153,6 +135,40 @@ export default function useAppicationData() {
         })
       });
   };
+
+  // Open WebSocket
+  useEffect(() => {
+    const wsc = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
+    wsc.addEventListener("open", (event) => {
+      wsc.send("ping");
+    });
+
+    wsc.onmessage = (event) => {
+      console.log(`Message Received: ${event.data}`);
+    };
+
+    wsc.addEventListener("message", (event) => {
+      const message = JSON.parse(event.data);
+
+      if (message.type === "SET_INTERVIEW") {
+        const appointment = {
+          ...state.appointments[message.id],
+          interview: { ...interview }
+        };
+
+        const appointments = {
+          ...state.appointments,
+          [id]: appointment
+        };
+
+        setState({
+          ...state,
+          appointments
+        })
+      }
+    });
+  }, [])
 
   return {
     state,
