@@ -57,10 +57,6 @@ export default function useAppicationData() {
       wsc.send("ping");
     });
 
-    wsc.onmessage = (event) => {
-      console.log(`Message Received: ${event.data}`);
-    };
-
     // Update appointments when receiving SET_INTERVIEW message
     wsc.addEventListener("message", (event) => {
       const message = JSON.parse(event.data);
