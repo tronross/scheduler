@@ -77,7 +77,7 @@ export default function Appointment(props) {
     if (mode === EMPTY && interview) {
       transition(SHOW);
     }
-    if (interview === null && mode === SHOW) {
+    if (mode === SHOW && interview === null) {
       transition(EMPTY);
      }
     }, [interview, transition, mode]);
