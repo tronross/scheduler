@@ -2,7 +2,7 @@
 // Appointment Component
 ////////////////////////////
 
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 
 import useVisualMode from 'hooks/useVisualMode';
 
@@ -72,6 +72,16 @@ export default function Appointment(props) {
   function editAppointment() {
     transition(EDIT);
   }
+
+  useEffect(() => {
+    if (mode === EMPTY && interview) {
+      transition(SHOW);
+    }
+    if (interview === null && mode === SHOW) {
+      transition(EMPTY);
+     }
+    }, [interview, transition, mode]);
+  
 
   // Render Component
   return (
