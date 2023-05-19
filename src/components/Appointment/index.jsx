@@ -73,15 +73,16 @@ export default function Appointment(props) {
     transition(EDIT);
   }
 
+  // Trigger appropriate mode and render for changes in state generated via WebSockets
   useEffect(() => {
     if (mode === EMPTY && interview) {
       transition(SHOW);
     }
     if (mode === SHOW && interview === null) {
       transition(EMPTY);
-     }
-    }, [interview, transition, mode]);
-  
+    }
+  }, [interview, transition, mode]);
+
 
   // Render Component
   return (
